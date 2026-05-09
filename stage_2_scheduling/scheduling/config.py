@@ -27,13 +27,13 @@ FALLBACK_FORECAST_PATH = LOCAL_DATA_DIR / "forecast.csv"
 FALLBACK_FORECAST_BACKUP = OUTPUT_DIR / "forecast_baseline.csv"
 
 TARGET_DATES: list[str] = [
-    "2026-04-27",
-    "2026-04-28",
-    "2026-04-29",
-    "2026-04-30",
-    "2026-05-01",
-    "2026-05-02",
-    "2026-05-03",
+    "2026-04-06",
+    "2026-04-07",
+    "2026-04-08",
+    "2026-04-09",
+    "2026-04-10",
+    "2026-04-11",
+    "2026-04-12",
 ]
 OPEN_HOUR = 7
 CLOSE_HOUR = 23
@@ -51,6 +51,11 @@ STATION_NAMES = {
 HOLIDAY_VERSION_OVERRIDE: dict[str, str] = {
     "2026-05-01": "вых",
 }
+
+# Множитель для значений guests_count из прогноза.
+# Применяется в requirements_builder перед маппингом гостей в reqlabor.
+# 1.0 = прогноз без изменений; 0.8 = на 20% меньше гостей.
+FORECAST_GUESTS_SCALE = 0.8
 
 FALLBACK_HISTORY_WEEKS = 12
 FALLBACK_MIN_ROWS = 7 * 16
