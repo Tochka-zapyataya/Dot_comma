@@ -1,0 +1,51 @@
+{
+  "is_valid": false,
+  "errors": [
+    "2 understaffed slots. Examples: ['under: 2026-05-01 h=22 K req=5 actual=4', 'under: 2026-05-03 h=22 C req=3 actual=2']"
+  ],
+  "warnings": [],
+  "metrics": {
+    "is_valid": false,
+    "total_errors": 1,
+    "total_warnings": 0,
+    "total_shifts": 202,
+    "total_hours": 1316,
+    "total_required_hours": 1317,
+    "coverage_rate_slots": 0.9964,
+    "coverage_rate_hours": 0.9992,
+    "used_employees": 69,
+    "unused_employees": [],
+    "average_station_priority": 1.8168,
+    "shift_duration_distribution": {
+      "3": 13,
+      "4": 49,
+      "6": 6,
+      "7": 68,
+      "8": 25,
+      "9": 41
+    },
+    "exact_coverage_slots": 557,
+    "overstaffed_slots": 1,
+    "understaffed_slots": 2,
+    "too_much_overstaffed_slots": 0,
+    "max_overstaffing": 1,
+    "total_overstaffing": 1,
+    "solver_mode": "cpsat-hard",
+    "solver_info": {
+      "status": "OPTIMAL",
+      "wall_time_seconds": 34.4,
+      "enforce_all_employees_used": true,
+      "num_candidates": 57410,
+      "num_slots": 560,
+      "num_employees": 69,
+      "objective_value": 2300384.0,
+      "best_bound": 2300384.0,
+      "total_overstaff": 1,
+      "total_understaff": 2,
+      "total_unused_employees": 0,
+      "unused_employees": []
+    },
+    "solver_proved_optimal": true,
+    "structural_infeasibility_detected": true
+  }
+}
