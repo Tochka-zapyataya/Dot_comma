@@ -1331,7 +1331,7 @@
     {
       "test_name": "coverage_lower_only",
       "status": "INFEASIBLE",
-      "wall_time_seconds": 6.26,
+      "wall_time_seconds": 6.7,
       "constraints_relaxed": [
         "no_upper_staffing_cap",
         "max_work_days_cap_5"
@@ -1342,7 +1342,7 @@
     {
       "test_name": "coverage_with_upper_bound",
       "status": "INFEASIBLE",
-      "wall_time_seconds": 9.82,
+      "wall_time_seconds": 10.65,
       "constraints_relaxed": [
         "upper_cap_req_plus_2",
         "max_work_days_cap_5"
@@ -1354,7 +1354,7 @@
     {
       "test_name": "max_work_days_le_5",
       "status": "INFEASIBLE",
-      "wall_time_seconds": 9.82,
+      "wall_time_seconds": 10.65,
       "constraints_relaxed": [
         "upper_cap_req_plus_2",
         "max_work_days_cap_5"
@@ -1366,7 +1366,7 @@
     {
       "test_name": "max_work_days_le_6",
       "status": "OPTIMAL",
-      "wall_time_seconds": 9.16,
+      "wall_time_seconds": 9.69,
       "constraints_relaxed": [
         "upper_cap_req_plus_2",
         "max_work_days_cap_6"
@@ -1377,7 +1377,7 @@
     {
       "test_name": "max_work_days_le_7",
       "status": "OPTIMAL",
-      "wall_time_seconds": 13.06,
+      "wall_time_seconds": 15.16,
       "constraints_relaxed": [
         "upper_cap_req_plus_2",
         "max_work_days_cap_7"
@@ -1388,7 +1388,7 @@
     {
       "test_name": "no_max_5_days",
       "status": "OPTIMAL",
-      "wall_time_seconds": 15.59,
+      "wall_time_seconds": 15.65,
       "constraints_relaxed": [
         "upper_cap_req_plus_2",
         "no_max_work_days_cap"
@@ -1399,7 +1399,7 @@
     {
       "test_name": "no_weekly_worktime_limit",
       "status": "INFEASIBLE",
-      "wall_time_seconds": 8.78,
+      "wall_time_seconds": 9.65,
       "constraints_relaxed": [
         "upper_cap_req_plus_2",
         "no_weekly_worktime_limit",
@@ -1411,7 +1411,7 @@
     {
       "test_name": "no_one_shift_per_day",
       "status": "OPTIMAL",
-      "wall_time_seconds": 7.48,
+      "wall_time_seconds": 8.25,
       "constraints_relaxed": [
         "upper_cap_req_plus_2",
         "no_one_shift_per_day",
@@ -1423,7 +1423,7 @@
     {
       "test_name": "allow_more_overstaff_req_plus_3",
       "status": "INFEASIBLE",
-      "wall_time_seconds": 10.46,
+      "wall_time_seconds": 11.29,
       "constraints_relaxed": [
         "upper_cap_req_plus_3",
         "max_work_days_cap_5"
@@ -1434,7 +1434,7 @@
     {
       "test_name": "allow_more_overstaff_req_plus_4",
       "status": "INFEASIBLE",
-      "wall_time_seconds": 9.93,
+      "wall_time_seconds": 10.91,
       "constraints_relaxed": [
         "upper_cap_req_plus_4",
         "max_work_days_cap_5"
@@ -1445,7 +1445,7 @@
     {
       "test_name": "allow_more_overstaff_req_plus_5",
       "status": "INFEASIBLE",
-      "wall_time_seconds": 10.27,
+      "wall_time_seconds": 11.34,
       "constraints_relaxed": [
         "upper_cap_req_plus_5",
         "max_work_days_cap_5"
@@ -17047,7 +17047,7 @@
         "label": "feasibility_strict_all_staff",
         "phase": "feasibility",
         "status": "INFEASIBLE",
-        "seconds": 9.82
+        "seconds": 10.65
       },
       {
         "label": "optimize_strict_all_staff",
@@ -17059,7 +17059,7 @@
         "label": "feasibility_relaxed_without_all_staff",
         "phase": "feasibility",
         "status": "INFEASIBLE",
-        "seconds": 11.84
+        "seconds": 12.77
       }
     ],
     "comparison_note": "Жёсткая допустимость (все в смене): INFEASIBLE. Без «все в смене» (диагностика): INFEASIBLE."
@@ -17068,7 +17068,7 @@
     "feasibility": {
       "phase": "feasibility",
       "status": "INFEASIBLE",
-      "wall_time_seconds": 9.82,
+      "wall_time_seconds": 10.65,
       "enforce_all_employees_used": true,
       "num_candidates": 57410,
       "num_slots": 560,
@@ -17085,7 +17085,7 @@
     "relaxed_feasibility_optional": {
       "phase": "feasibility",
       "status": "INFEASIBLE",
-      "wall_time_seconds": 11.84,
+      "wall_time_seconds": 12.77,
       "enforce_all_employees_used": false,
       "num_candidates": 57410,
       "num_slots": 560,

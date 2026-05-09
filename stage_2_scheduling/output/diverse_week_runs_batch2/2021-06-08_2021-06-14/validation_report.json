@@ -38,7 +38,7 @@
       "feasibility": {
         "phase": "feasibility",
         "status": "INFEASIBLE",
-        "wall_time_seconds": 10.65,
+        "wall_time_seconds": 9.94,
         "enforce_all_employees_used": true,
         "num_candidates": 57410,
         "num_slots": 560,
@@ -55,7 +55,7 @@
       "relaxed_feasibility_optional": {
         "phase": "feasibility",
         "status": "INFEASIBLE",
-        "wall_time_seconds": 12.77,
+        "wall_time_seconds": 10.93,
         "enforce_all_employees_used": false,
         "num_candidates": 57410,
         "num_slots": 560,
