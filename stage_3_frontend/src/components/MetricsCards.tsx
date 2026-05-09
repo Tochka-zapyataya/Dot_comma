@@ -17,7 +17,7 @@ export function MetricsCards({ validation }: MetricsCardsProps) {
   const isValid = validation.is_valid;
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
       <Card
         icon={<ShieldCheck className="h-4 w-4" />}
         label="Расписание"
@@ -114,23 +114,26 @@ function Card({
           : "text-graphite-500";
   const valueCls = tone === "orangeDeep" ? "text-white" : "text-graphite-900";
   return (
-    <div className={`rounded-2xl border p-3.5 ${cls}`}>
-      <div className="flex items-center justify-between">
-        <span
-          className={`text-[11px] uppercase tracking-wide font-semibold ${labelCls}`}
+    <div
+      className={`relative rounded-2xl border p-4 min-w-0 flex flex-col justify-between min-h-[110px] ${cls}`}
+    >
+      <div className="flex items-start justify-between gap-2">
+        <div
+          className={`text-[11px] uppercase tracking-wide font-semibold leading-tight ${labelCls}`}
         >
           {label}
-        </span>
+        </div>
         <span
-          className={`inline-flex h-7 w-7 items-center justify-center rounded-lg ${iconCls}`}
+          className={`shrink-0 inline-flex h-7 w-7 items-center justify-center rounded-lg ${iconCls}`}
         >
           {icon}
         </span>
       </div>
       <div
-        className={`mt-1 ${
-          big ? "text-xl" : "text-2xl"
-        } font-semibold ${valueCls}`}
+        className={`mt-3 ${
+          big ? "text-2xl" : "text-3xl"
+        } font-extrabold leading-none tabular-nums truncate ${valueCls}`}
+        title={value}
       >
         {value}
       </div>

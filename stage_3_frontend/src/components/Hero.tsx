@@ -48,12 +48,6 @@ export function Hero({ onStart }: HeroProps) {
                     Запустить симуляцию
                     <ArrowRight className="h-5 w-5" />
                   </button>
-                  <a
-                    href="#about"
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/30 hover:border-white/60 transition px-5 py-4 text-white/90 font-medium text-sm"
-                  >
-                    Как устроен алгоритм
-                  </a>
                 </div>
 
                 <div className="mt-10 grid grid-cols-3 gap-3 max-w-lg">
@@ -166,38 +160,6 @@ function SmallChip({ children }: { children: React.ReactNode }) {
 function DecorArrows() {
   return (
     <>
-      <svg
-        viewBox="0 0 200 200"
-        className="absolute -top-10 right-10 lg:right-1/3 h-44 w-44 text-brand-orange opacity-90 hidden md:block"
-        aria-hidden
-      >
-        <defs>
-          <filter id="d1" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow
-              dx="0"
-              dy="6"
-              stdDeviation="6"
-              floodColor="#000"
-              floodOpacity="0.25"
-            />
-          </filter>
-        </defs>
-        <path
-          d="M70 20 C 130 20, 160 60, 160 110 L 175 110 L 145 160 L 115 110 L 130 110 C 130 80, 110 55, 70 55 Z"
-          fill="currentColor"
-          filter="url(#d1)"
-        />
-      </svg>
-      <svg
-        viewBox="0 0 200 200"
-        className="absolute bottom-2 left-1/3 h-32 w-32 text-brand-orange-light opacity-90 hidden md:block rotate-[-30deg]"
-        aria-hidden
-      >
-        <path
-          d="M40 100 C 40 50, 90 30, 140 50 L 145 35 L 175 80 L 125 90 L 130 75 C 100 60, 70 75, 70 110 Z"
-          fill="currentColor"
-        />
-      </svg>
       <div className="absolute -bottom-16 -right-16 h-64 w-64 rounded-full bg-brand-forest-light/40 blur-3xl pointer-events-none" />
       <div className="absolute -top-24 -left-20 h-72 w-72 rounded-full bg-brand-forest-deep/60 blur-3xl pointer-events-none" />
     </>

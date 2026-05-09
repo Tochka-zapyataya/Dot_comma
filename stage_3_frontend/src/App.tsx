@@ -227,15 +227,16 @@ export default function App() {
           </motion.div>
         </AnimatePresence>
 
+        <MetricsCards validation={data.validation} />
+
         <div className="grid grid-cols-12 gap-5">
-          <div className="col-span-12 xl:col-span-7">
+          <div className="col-span-12 xl:col-span-8">
             <CurrentHourSummary
               hour={hourSlot}
               onEmployeeClick={(e) => setSelectedEmployee(e)}
             />
           </div>
-          <div className="col-span-12 xl:col-span-5 space-y-4">
-            <MetricsCards validation={data.validation} />
+          <div className="col-span-12 xl:col-span-4 space-y-4">
             <Legend />
             <DownloadPanel availability={data.fileAvailability} />
           </div>
