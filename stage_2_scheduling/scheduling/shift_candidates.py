@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import logging
 
 import pandas as pd
@@ -10,11 +8,24 @@ from . import config
 logger = logging.getLogger(__name__)
 
 
+_STATION_PRIO_PENALTY = {1: 0, 2: 1, 3: 4, 4: 10}
+_SHIFT_PRIO_PENALTY = {1: 0, 2: 1, 3: 2, 4: 4}
+
+
 def build_candidates(data: dict) -> pd.DataFrame:
     sched = data["sched"]
     staff_limits = data["staff_limits"]
     station_prio = data["station_priorities"]
-    shift_durations = sorted(data["shifts"]["shift_duration"].unique().tolist())
+    shifts_tbl = data["shifts"]
+
+    shift_durations = sorted(int(x) for x in shifts_tbl["shift_duration"].unique().tolist())
+    dur_to_shift_prio_raw: dict[int, int] = {}
+    for r in shifts_tbl.itertuples():
+        d = int(r.shift_duration)
+        p = int(r.shift_priority)
+        if d in dur_to_shift_prio_raw and dur_to_shift_prio_raw[d] != p:
+            raise ValueError(f"Contradictory shift_priority for duration {d} in shifts.csv")
+        dur_to_shift_prio_raw[d] = p
 
     weekday_by_date = {
         ds: pd.to_datetime(ds).weekday() + 1 for ds in config.TARGET_DATES
@@ -52,6 +63,10 @@ def build_candidates(data: dict) -> pd.DataFrame:
                 for duration in shift_durations:
                     if duration > max_dur:
                         continue
+                    sp_raw = dur_to_shift_prio_raw.get(duration)
+                    if sp_raw is None:
+                        raise ValueError(f"Duration {duration} not listed in shifts.csv")
+                    shift_pen = _SHIFT_PRIO_PENALTY[sp_raw]
                     for start in range(eff_start, eff_end - duration + 1):
                         end = start + duration
                         for station in config.STATIONS:
@@ -62,11 +77,13 @@ def build_candidates(data: dict) -> pd.DataFrame:
                                 station_priority = 4
                                 missing_prio_warnings += 1
 
-                            shift_pen = config.SHIFT_DURATION_PENALTY[duration]
-                            base_cost = (
-                                config.STATION_PRIORITY_WEIGHT * station_priority
-                                + config.SHIFT_DURATION_WEIGHT * shift_pen
-                                - config.DURATION_REWARD_WEIGHT * duration
+                            st_pen_h = _STATION_PRIO_PENALTY[station_priority]
+                            station_penalty_hours = int(st_pen_h * duration)
+                            base_cost = int(
+                                config.STATION_PRIORITY_WEIGHT * station_penalty_hours
+                                + config.SHIFT_PRIORITY_WEIGHT * shift_pen
+                                + config.SHIFT_COUNT_WEIGHT
+                                - config.GREEDY_DURATION_BIAS * duration
                             )
                             rows.append({
                                 "candidate_id": cid,
@@ -77,8 +94,11 @@ def build_candidates(data: dict) -> pd.DataFrame:
                                 "starttime": int(start),
                                 "finishtime": int(end),
                                 "duration": int(duration),
-                                "shift_duration_penalty": int(shift_pen),
+                                "shift_priority_raw": int(sp_raw),
+                                "shift_penalty": int(shift_pen),
                                 "station_priority": int(station_priority),
+                                "station_penalty_per_hour": int(st_pen_h),
+                                "station_penalty_hours": int(station_penalty_hours),
                                 "base_cost": int(base_cost),
                             })
                             cid += 1

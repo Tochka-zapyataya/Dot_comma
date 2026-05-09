@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import json
 import logging
 from collections import defaultdict
@@ -14,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 def export_all(
-    schedule_df: pd.DataFrame,
+    schedule_df: pd.DataFrame | None,
     requirements_df: pd.DataFrame,
     candidates_df: pd.DataFrame,
     validation: dict,
@@ -22,50 +20,102 @@ def export_all(
     forecast_df: pd.DataFrame,
     forecast_meta: dict,
     output_dir: Path | None = None,
+    write_final_schedule_csv_xlsx: bool = True,
+    debug_greedy_schedule_df: pd.DataFrame | None = None,
 ) -> None:
     out = output_dir or config.OUTPUT_DIR
     out.mkdir(parents=True, exist_ok=True)
 
-    schedule_df = schedule_df[
-        ["ds", "station_key", "employee_id", "starttime", "finishtime"]
-    ].copy()
-    schedule_df.to_excel(out / "schedule.xlsx", index=False)
-    schedule_df.to_csv(out / "schedule.csv", index=False)
+    stale_final_names = (
+        "schedule.xlsx",
+        "schedule.csv",
+        "coverage_heatmap.csv",
+        "employee_summary.csv",
+        "timeline.json",
+    )
+    if not write_final_schedule_csv_xlsx:
+        for fn in stale_final_names:
+            p = out / fn
+            if p.exists():
+                p.unlink()
+
+    sd = schedule_df
+    sel_keys = (
+        _schedule_selected_keys(sd) if sd is not None and not sd.empty else set()
+    )
+    greedy_keys = (
+        _schedule_selected_keys(debug_greedy_schedule_df)
+        if debug_greedy_schedule_df is not None and not debug_greedy_schedule_df.empty
+        else set()
+    )
 
     requirements_df.to_csv(out / "requirements.csv", index=False)
 
-    selected_keys = set(zip(
-        schedule_df["ds"].astype(str),
-        schedule_df["station_key"].astype(str),
-        schedule_df["employee_id"].astype(int),
-        schedule_df["starttime"].astype(int),
-        schedule_df["finishtime"].astype(int),
-    ))
     cands_export = candidates_df.copy()
-    cands_export["selected"] = [
-        int((str(r.ds), str(r.station_key), int(r.employee_id),
-             int(r.starttime), int(r.finishtime)) in selected_keys)
-        for r in cands_export.itertuples()
-    ]
+    keys_c = list(zip(
+        cands_export["ds"].astype(str),
+        cands_export["station_key"].astype(str),
+        cands_export["employee_id"].astype(int),
+        cands_export["starttime"].astype(int),
+        cands_export["finishtime"].astype(int),
+    ))
+    sf = [t in sel_keys for t in keys_c]
+    cands_export["selected"] = [int(v) for v in sf]
+    cands_export["selected_final"] = sf
+    cands_export["selected_greedy_debug"] = [t in greedy_keys for t in keys_c]
     cands_export.to_csv(out / "candidates.csv", index=False)
 
-    coverage_df = _build_coverage_heatmap(schedule_df, requirements_df)
-    coverage_df.to_csv(out / "coverage_heatmap.csv", index=False)
+    if sd is None or sd.empty:
+        pass
+    elif write_final_schedule_csv_xlsx:
+        final = sd[["ds", "station_key", "employee_id", "starttime", "finishtime"]].copy()
+        final.to_excel(out / "schedule.xlsx", index=False)
+        final.to_csv(out / "schedule.csv", index=False)
 
-    employee_summary = _build_employee_summary(
-        schedule_df, requirements_df, candidates_df, forecast_df
-    )
-    employee_summary.to_csv(out / "employee_summary.csv", index=False)
+        coverage_df = _build_coverage_heatmap(sd, requirements_df)
+        coverage_df.to_csv(out / "coverage_heatmap.csv", index=False)
 
-    timeline = _build_timeline_json(schedule_df, requirements_df, forecast_df)
-    _save_json(timeline, out / "timeline.json")
+        employee_summary = _build_employee_summary(
+            sd, requirements_df, candidates_df, forecast_df
+        )
+        employee_summary.to_csv(out / "employee_summary.csv", index=False)
+
+        timeline = _build_timeline_json(sd, requirements_df, forecast_df)
+        _save_json(timeline, out / "timeline.json")
+
+    if debug_greedy_schedule_df is not None and not debug_greedy_schedule_df.empty:
+        gs = debug_greedy_schedule_df[
+            ["ds", "station_key", "employee_id", "starttime", "finishtime"]
+        ].copy()
+        gs.to_excel(out / "schedule_greedy_fallback.xlsx", index=False)
+        gs.to_csv(out / "schedule_greedy_fallback.csv", index=False)
+
+        dbg_cov = _build_coverage_heatmap(gs, requirements_df)
+        dbg_cov.to_csv(out / "coverage_heatmap_greedy_fallback.csv", index=False)
 
     _save_json(validation, out / "validation_report.json")
 
     full_diag = {**diagnostics, "forecast_metadata": forecast_meta}
     _save_json(full_diag, out / "diagnostics.json")
 
-    logger.info("Exported all artifacts to %s", out)
+    if write_final_schedule_csv_xlsx:
+        logger.info("Exported FINAL schedule artifacts to %s", out)
+    else:
+        logger.info(
+            "Exported without final schedule.xlsx (invalid CP-SAT) to %s", out)
+    if debug_greedy_schedule_df is not None and not debug_greedy_schedule_df.empty:
+        logger.info("Exported greedy DEBUG schedules to %s", out)
+
+
+
+def _schedule_selected_keys(df: pd.DataFrame) -> set[tuple]:
+    return set(zip(
+        df["ds"].astype(str),
+        df["station_key"].astype(str),
+        df["employee_id"].astype(int),
+        df["starttime"].astype(int),
+        df["finishtime"].astype(int),
+    ))
 
 
 def _build_coverage_heatmap(

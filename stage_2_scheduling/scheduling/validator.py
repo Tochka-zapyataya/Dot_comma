@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 import logging
 from collections import defaultdict
 
@@ -12,12 +10,15 @@ logger = logging.getLogger(__name__)
 
 
 REQUIRED_SCHEDULE_COLUMNS = ["ds", "station_key", "employee_id", "starttime", "finishtime"]
+_STATION_PRIO_PENALTY_HOUR = {1: 0, 2: 1, 3: 4, 4: 10}
 
 
 def validate_schedule(
     schedule_df: pd.DataFrame,
     requirements_df: pd.DataFrame,
     data: dict,
+    omit_max_working_days_rule: bool = False,
+    omit_one_shift_per_day_rule: bool = False,
 ) -> dict:
     errors: list[str] = []
     warnings: list[str] = []
@@ -53,18 +54,52 @@ def validate_schedule(
     _check_duration_in_shifts(schedule, data, errors)
     _check_shift_limit(schedule, data, errors)
     _check_within_sched_window(schedule, data, errors)
-    _check_one_shift_per_day(schedule, errors)
+    _check_known_employees_only(schedule, data, errors)
+    if not omit_one_shift_per_day_rule:
+        _check_one_shift_per_day(schedule, errors)
     _check_no_double_station(schedule, errors)
     _check_worktime_limit(schedule, data, errors)
-    _check_max_5_days(schedule, errors)
-    used, unused = _check_min_1_day(schedule, data, warnings)
+    if not omit_max_working_days_rule:
+        _check_max_5_days(schedule, errors)
+    used, unused = _check_all_employees_used(schedule, data, errors)
+
+    prio_lookup_station = dict(
+        zip(
+            zip(
+                data["station_priorities"]["employee_id"].astype(int),
+                data["station_priorities"]["station_key"].astype(str),
+            ),
+            data["station_priorities"]["station_priority"].astype(int),
+        )
+    )
+
+    shifts_df = data["shifts"].copy()
+    shifts_df["shift_duration"] = shifts_df["shift_duration"].astype(int)
+    shifts_df["shift_priority"] = shifts_df["shift_priority"].astype(int)
+    dur_to_shift_prio = dict(
+        zip(shifts_df["shift_duration"], shifts_df["shift_priority"])
+    )
+
     coverage_metrics = _check_coverage(schedule, requirements_df, errors)
 
     avg_station_prio = _avg_station_priority(schedule, data)
+    pq_metrics = _station_priority_hours_and_penalty(schedule, prio_lookup_station)
+
     duration_dist = (
         schedule["duration"].astype(int).value_counts().sort_index().to_dict()
     )
     duration_dist = {int(k): int(v) for k, v in duration_dist.items()}
+
+    shift_prio_dist = _shift_priority_distribution(schedule, dur_to_shift_prio)
+
+    emp_hours = schedule.groupby("employee_id")["duration"].sum()
+    eh_min = int(emp_hours.min()) if len(emp_hours) else 0
+    eh_max = int(emp_hours.max()) if len(emp_hours) else 0
+    eh_avg = float(emp_hours.mean()) if len(emp_hours) else 0.0
+    eh_std = (
+        float(emp_hours.std(ddof=0)) if len(emp_hours) > 1 else 0.0
+    )
+
 
     is_valid = len(errors) == 0
 
@@ -95,6 +130,12 @@ def validate_schedule(
         "unused_employees": sorted(int(e) for e in unused),
         "average_station_priority": avg_station_prio,
         "shift_duration_distribution": duration_dist,
+        "shift_priority_distribution": shift_prio_dist,
+        **pq_metrics,
+        "min_hours": eh_min,
+        "max_hours": eh_max,
+        "avg_hours": round(eh_avg, 4),
+        "std_hours": round(eh_std, 4),
         **coverage_metrics,
     }
 
@@ -113,10 +154,23 @@ def _empty_metrics() -> dict:
         "total_warnings": 0,
         "total_shifts": 0,
         "total_hours": 0,
+        "total_required_hours": 0,
+        "coverage_rate_slots": 0,
+        "coverage_rate_hours": 0,
         "used_employees": 0,
         "unused_employees": [],
         "average_station_priority": None,
         "shift_duration_distribution": {},
+        "shift_priority_distribution": {},
+        "hours_priority_1": 0,
+        "hours_priority_2": 0,
+        "hours_priority_3": 0,
+        "hours_priority_4": 0,
+        "weighted_station_priority_penalty": 0,
+        "min_hours": 0,
+        "max_hours": 0,
+        "avg_hours": 0.0,
+        "std_hours": 0.0,
         "exact_coverage_slots": 0,
         "overstaffed_slots": 0,
         "understaffed_slots": 0,
@@ -256,16 +310,28 @@ def _check_max_5_days(schedule: pd.DataFrame, errors: list[str]) -> None:
         )
 
 
-def _check_min_1_day(
-    schedule: pd.DataFrame, data: dict, warnings: list[str]
+def _check_known_employees_only(
+    schedule: pd.DataFrame, data: dict, errors: list[str]
+) -> None:
+    allowed = set(int(e) for e in data["staff_limits"]["employee_id"].tolist())
+    rogue = sorted(set(schedule["employee_id"].astype(int).unique()) - allowed)
+    if rogue:
+        errors.append(
+            f"{len(rogue)} employee(s) appear in schedule but not in "
+            f"staff_limits.csv: {rogue}",
+        )
+
+
+def _check_all_employees_used(
+    schedule: pd.DataFrame, data: dict, errors: list[str],
 ) -> tuple[set[int], set[int]]:
     all_emps = set(int(e) for e in data["staff_limits"]["employee_id"].tolist())
-    used = set(int(e) for e in schedule["employee_id"].unique())
+    used = set(int(e) for e in schedule["employee_id"].astype(int).unique())
     unused = all_emps - used
     if unused:
-        warnings.append(
-            f"{len(unused)} employees are not in schedule "
-            f"(may be acceptable in soft mode): {sorted(unused)[:10]}..."
+        errors.append(
+            f"{len(unused)} employee(s) have no shifts (everyone must work ≥1): "
+            f"{sorted(unused)}",
         )
     return used, unused
 
@@ -303,6 +369,7 @@ def _check_coverage(
                 )
         elif diff > 2:
             too_much += 1
+            max_over = max(max_over, diff)
             if len(coverage_errors) < 5:
                 coverage_errors.append(
                     f"over+{diff}: {r.ds} h={r.hour} {r.station_key} req={req_eff} actual={actual}"
@@ -344,11 +411,42 @@ def _avg_station_priority(schedule: pd.DataFrame, data: dict) -> float | None:
     )
     if schedule.empty:
         return None
-    vals = []
-    for r in schedule.itertuples():
-        v = prio.get((int(r.employee_id), str(r.station_key)))
-        if v is not None:
-            vals.append(v)
-    if not vals:
-        return None
+    vals = [
+        prio.get((int(r.employee_id), str(r.station_key)), 4)
+        for r in schedule.itertuples()
+    ]
     return round(sum(vals) / len(vals), 4)
+
+
+def _station_priority_hours_and_penalty(
+    schedule: pd.DataFrame,
+    prio_lookup: dict,
+) -> dict:
+    buckets = {1: 0, 2: 0, 3: 0, 4: 0}
+    weighted = 0
+    for r in schedule.itertuples():
+        dur = int(r.duration)
+        p = prio_lookup.get((int(r.employee_id), str(r.station_key)), 4)
+        if p not in buckets:
+            p = 4
+        buckets[p] += dur
+        weighted += _STATION_PRIO_PENALTY_HOUR.get(p, 10) * dur
+    return {
+        "hours_priority_1": int(buckets[1]),
+        "hours_priority_2": int(buckets[2]),
+        "hours_priority_3": int(buckets[3]),
+        "hours_priority_4": int(buckets[4]),
+        "weighted_station_priority_penalty": int(weighted),
+    }
+
+
+def _shift_priority_distribution(
+    schedule: pd.DataFrame,
+    dur_to_shift_prio: dict[int, int],
+) -> dict[str, int]:
+    counts: dict[int, int] = defaultdict(int)
+    for r in schedule.itertuples():
+        sp = dur_to_shift_prio.get(int(r.duration))
+        key = int(sp) if sp is not None else 0
+        counts[key] += 1
+    return {str(k): int(v) for k, v in sorted(counts.items())}
