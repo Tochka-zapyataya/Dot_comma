@@ -13,15 +13,15 @@
     "coverage_rate_hours": 1.0,
     "used_employees": 69,
     "unused_employees": [],
-    "average_station_priority": 1.6181,
+    "average_station_priority": 1.6131,
     "shift_duration_distribution": {
       "3": 69,
       "4": 18,
-      "5": 3,
-      "6": 4,
-      "7": 46,
-      "8": 26,
-      "9": 33
+      "5": 2,
+      "6": 5,
+      "7": 45,
+      "8": 29,
+      "9": 31
     },
     "shift_priority_distribution": {
       "1": 105,
@@ -37,7 +37,7 @@
     "min_hours": 3,
     "max_hours": 39,
     "avg_hours": 16.5942,
-    "std_hours": 14.4004,
+    "std_hours": 14.2537,
     "exact_coverage_slots": 555,
     "overstaffed_slots": 5,
     "understaffed_slots": 0,
@@ -45,46 +45,6 @@
     "max_overstaffing": 1,
     "total_overstaffing": 5,
     "solver_mode": "cpsat_optimize",
-    "solver_info": {
-      "feasibility": {
-        "phase": "feasibility",
-        "status": "OPTIMAL",
-        "wall_time_seconds": 24.43,
-        "enforce_all_employees_used": true,
-        "num_candidates": 57410,
-        "num_slots": 560,
-        "num_employees": 69,
-        "objective_mode": "none",
-        "objective_value": null,
-        "total_overstaff": 146,
-        "total_understaff": 0,
-        "total_unused_employees": 0,
-        "unused_employees": [],
-        "final_num_shifts": 226
-      },
-      "optimize": {
-        "phase": "optimize",
-        "status": "OPTIMAL",
-        "wall_time_seconds": 40.53,
-        "enforce_all_employees_used": true,
-        "num_candidates": 57410,
-        "num_slots": 560,
-        "num_employees": 69,
-        "objective_mode": "weighted",
-        "objective_value": 1362314.0,
-        "best_bound": 1362314.0,
-        "total_overstaff": 5,
-        "total_understaff": 0,
-        "total_unused_employees": 0,
-        "unused_employees": [],
-        "final_num_shifts": 199
-      },
-      "relaxed_feasibility_optional": null,
-      "solver_mode_selected": "cpsat_optimize",
-      "export_final_schedule_artifacts": true,
-      "chosen_from_optimize": true
-    },
-    "solver_proved_optimal": true,
-    "structural_infeasibility_detected": false
+    "solver_proved_optimal": true
   }
 }

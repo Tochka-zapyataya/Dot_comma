@@ -21,7 +21,6 @@ def export_all(
     forecast_meta: dict,
     output_dir: Path | None = None,
     write_final_schedule_csv_xlsx: bool = True,
-    debug_greedy_schedule_df: pd.DataFrame | None = None,
 ) -> None:
     out = output_dir or config.OUTPUT_DIR
     out.mkdir(parents=True, exist_ok=True)
@@ -43,11 +42,6 @@ def export_all(
     sel_keys = (
         _schedule_selected_keys(sd) if sd is not None and not sd.empty else set()
     )
-    greedy_keys = (
-        _schedule_selected_keys(debug_greedy_schedule_df)
-        if debug_greedy_schedule_df is not None and not debug_greedy_schedule_df.empty
-        else set()
-    )
 
     requirements_df.to_csv(out / "requirements.csv", index=False)
 
@@ -62,7 +56,6 @@ def export_all(
     sf = [t in sel_keys for t in keys_c]
     cands_export["selected"] = [int(v) for v in sf]
     cands_export["selected_final"] = sf
-    cands_export["selected_greedy_debug"] = [t in greedy_keys for t in keys_c]
     cands_export.to_csv(out / "candidates.csv", index=False)
 
     if sd is None or sd.empty:
@@ -83,16 +76,6 @@ def export_all(
         timeline = _build_timeline_json(sd, requirements_df, forecast_df)
         _save_json(timeline, out / "timeline.json")
 
-    if debug_greedy_schedule_df is not None and not debug_greedy_schedule_df.empty:
-        gs = debug_greedy_schedule_df[
-            ["ds", "station_key", "employee_id", "starttime", "finishtime"]
-        ].copy()
-        gs.to_excel(out / "schedule_greedy_fallback.xlsx", index=False)
-        gs.to_csv(out / "schedule_greedy_fallback.csv", index=False)
-
-        dbg_cov = _build_coverage_heatmap(gs, requirements_df)
-        dbg_cov.to_csv(out / "coverage_heatmap_greedy_fallback.csv", index=False)
-
     _save_json(validation, out / "validation_report.json")
 
     full_diag = {**diagnostics, "forecast_metadata": forecast_meta}
@@ -101,10 +84,7 @@ def export_all(
     if write_final_schedule_csv_xlsx:
         logger.info("Exported FINAL schedule artifacts to %s", out)
     else:
-        logger.info(
-            "Exported without final schedule.xlsx (invalid CP-SAT) to %s", out)
-    if debug_greedy_schedule_df is not None and not debug_greedy_schedule_df.empty:
-        logger.info("Exported greedy DEBUG schedules to %s", out)
+        logger.info("Exported without final schedule.xlsx (invalid CP-SAT) to %s", out)
 
 
 

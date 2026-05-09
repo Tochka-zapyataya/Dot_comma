@@ -386,17 +386,4 @@ def candidate_ids_from_schedule(
     return set(int(x) for x in j["candidate_id"].tolist())
 
 
-def solve_cpsat_feasibility_diagnostic_relaxed(
-    requirements_df: pd.DataFrame,
-    candidates_df: pd.DataFrame,
-    data: dict,
-    max_time_seconds: int | float | None = None,
-) -> tuple[pd.DataFrame | None, dict]:
-    return solve_cpsat_feasibility(
-        requirements_df,
-        candidates_df,
-        data,
-        enforce_all_employees_used=False,
-        max_time_seconds=max_time_seconds,
-    )
 
