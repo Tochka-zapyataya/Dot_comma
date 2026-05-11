@@ -1,0 +1,23 @@
+{
+  "solver_mode": "none",
+  "feasibility": {
+    "phase": "feasibility",
+    "status": "INFEASIBLE",
+    "wall_time_seconds": 0.9,
+    "enforce_all_employees_used": true,
+    "num_candidates": 57410,
+    "num_slots": 560,
+    "num_employees": 69,
+    "objective_mode": "none",
+    "objective_value": null
+  },
+  "optimize": {
+    "status": "SKIPPED_NO_STRICT_FEASIBILITY",
+    "phase": "optimize",
+    "wall_time_seconds": 0.0
+  },
+  "forecast_metadata": {
+    "fallback_forecast_used": false,
+    "source": "stage_2_scheduling/data/forecast_week_pattern.csv"
+  }
+}

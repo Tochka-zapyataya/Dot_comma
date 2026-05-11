@@ -1,0 +1,50 @@
+{
+  "is_valid": true,
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "is_valid": true,
+    "total_errors": 0,
+    "total_warnings": 0,
+    "total_shifts": 165,
+    "total_hours": 873,
+    "total_required_hours": 853,
+    "coverage_rate_slots": 1.0,
+    "coverage_rate_hours": 1.0,
+    "used_employees": 69,
+    "unused_employees": [],
+    "average_station_priority": 1.4485,
+    "shift_duration_distribution": {
+      "3": 73,
+      "4": 17,
+      "5": 3,
+      "6": 1,
+      "7": 29,
+      "8": 16,
+      "9": 26
+    },
+    "shift_priority_distribution": {
+      "1": 71,
+      "2": 73,
+      "3": 17,
+      "4": 4
+    },
+    "hours_priority_1": 603,
+    "hours_priority_2": 224,
+    "hours_priority_3": 0,
+    "hours_priority_4": 46,
+    "weighted_station_priority_penalty": 684,
+    "min_hours": 3,
+    "max_hours": 40,
+    "avg_hours": 12.6522,
+    "std_hours": 12.048,
+    "exact_coverage_slots": 545,
+    "overstaffed_slots": 15,
+    "understaffed_slots": 0,
+    "too_much_overstaffed_slots": 0,
+    "max_overstaffing": 2,
+    "total_overstaffing": 20,
+    "solver_mode": "cpsat_optimize",
+    "solver_proved_optimal": true
+  }
+}

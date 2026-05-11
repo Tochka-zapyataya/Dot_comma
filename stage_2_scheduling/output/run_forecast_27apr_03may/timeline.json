@@ -1,0 +1,6558 @@
+[
+  {
+    "date": "2026-04-27",
+    "hour": 7,
+    "guests_count": 49,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          6,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          14,
+          43,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 8,
+    "guests_count": 68,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          6,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          8,
+          14,
+          43,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 9,
+    "guests_count": 73,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          6,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          8,
+          14,
+          43,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 10,
+    "guests_count": 68,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          6,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          8,
+          14,
+          43,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 11,
+    "guests_count": 80,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          6,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          8,
+          14,
+          43,
+          44,
+          61
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 12,
+    "guests_count": 143,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          32,
+          38,
+          45
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          5,
+          8,
+          14,
+          43,
+          44,
+          61
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 13,
+    "guests_count": 153,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          32,
+          38,
+          45
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          5,
+          8,
+          14,
+          43,
+          44,
+          61
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 14,
+    "guests_count": 141,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          32,
+          37,
+          38,
+          45
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          5,
+          8,
+          14,
+          15,
+          43,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 15,
+    "guests_count": 132,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          32,
+          37,
+          38,
+          45
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          11,
+          15,
+          17,
+          43,
+          44,
+          54
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 16,
+    "guests_count": 124,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          27,
+          37,
+          38
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          11,
+          15,
+          17,
+          40,
+          54
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 17,
+    "guests_count": 128,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          27,
+          39,
+          41,
+          42
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          11,
+          15,
+          17,
+          40,
+          54
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 18,
+    "guests_count": 134,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          27,
+          39,
+          41,
+          42
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          11,
+          15,
+          17,
+          40,
+          54,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 19,
+    "guests_count": 125,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          30,
+          39,
+          41,
+          42
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          11,
+          15,
+          17,
+          54,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 20,
+    "guests_count": 109,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          30,
+          33,
+          41
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          11,
+          15,
+          17,
+          54,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 21,
+    "guests_count": 92,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          30,
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          11,
+          15,
+          17,
+          54,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-27",
+    "hour": 22,
+    "guests_count": 77,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          30,
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          11,
+          15,
+          17,
+          54,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 7,
+    "guests_count": 59,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          19,
+          31
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          17,
+          28,
+          43
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          1
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 8,
+    "guests_count": 74,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          19,
+          31
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          17,
+          28,
+          43,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          1
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 9,
+    "guests_count": 77,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          19,
+          31
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          17,
+          28,
+          43,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          1
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 10,
+    "guests_count": 69,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          6,
+          31
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          17,
+          28,
+          43,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          1
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 11,
+    "guests_count": 80,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          6,
+          31
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          5,
+          17,
+          28,
+          43,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          1
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 12,
+    "guests_count": 143,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          31,
+          38,
+          45
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          5,
+          14,
+          17,
+          28,
+          43,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          1
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 13,
+    "guests_count": 156,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          6,
+          18,
+          31,
+          38,
+          45
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          5,
+          14,
+          17,
+          28,
+          43,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          1
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 14,
+    "guests_count": 140,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          18,
+          38,
+          45
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          14,
+          17,
+          28,
+          43,
+          44,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 15,
+    "guests_count": 134,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          18,
+          38,
+          45
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          11,
+          14,
+          17,
+          52,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 16,
+    "guests_count": 124,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          6,
+          27,
+          34
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          11,
+          14,
+          52,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 17,
+    "guests_count": 128,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          27,
+          34,
+          39
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          11,
+          14,
+          52,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 18,
+    "guests_count": 135,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          27,
+          34,
+          39,
+          41
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          7,
+          11,
+          14,
+          52,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 19,
+    "guests_count": 125,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          27,
+          34,
+          39,
+          41
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          7,
+          11,
+          52,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 20,
+    "guests_count": 109,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          35,
+          41,
+          46
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          7,
+          11,
+          52,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 21,
+    "guests_count": 92,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          35,
+          46
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          7,
+          11,
+          52,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-28",
+    "hour": 22,
+    "guests_count": 78,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          35,
+          46
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          7,
+          11,
+          52,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 7,
+    "guests_count": 60,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          15,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          4,
+          28,
+          43
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 8,
+    "guests_count": 73,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          15,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          4,
+          28,
+          43,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 9,
+    "guests_count": 77,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          15,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          4,
+          28,
+          43,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 10,
+    "guests_count": 71,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          15,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          4,
+          5,
+          28,
+          43,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 11,
+    "guests_count": 81,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          15,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          4,
+          5,
+          28,
+          43,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 12,
+    "guests_count": 145,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          15,
+          16,
+          22,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          4,
+          5,
+          28,
+          43,
+          45,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 13,
+    "guests_count": 156,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          15,
+          16,
+          18,
+          22,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          4,
+          5,
+          28,
+          43,
+          45,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          8
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 14,
+    "guests_count": 140,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          16,
+          18,
+          22,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          4,
+          17,
+          43,
+          45,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 15,
+    "guests_count": 135,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          16,
+          18,
+          32,
+          37
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          7,
+          11,
+          17,
+          43,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 16,
+    "guests_count": 127,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          18,
+          27,
+          34,
+          37
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          1,
+          7,
+          11,
+          17,
+          40
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 17,
+    "guests_count": 131,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          27,
+          34,
+          37,
+          41
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          1,
+          7,
+          11,
+          17,
+          40
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 18,
+    "guests_count": 138,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          24,
+          27,
+          34,
+          41
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          7,
+          11,
+          17,
+          40,
+          52
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 19,
+    "guests_count": 128,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          24,
+          30,
+          34,
+          41
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          1,
+          7,
+          11,
+          17,
+          52
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 20,
+    "guests_count": 112,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          24,
+          30,
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          1,
+          7,
+          11,
+          17,
+          52
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 21,
+    "guests_count": 94,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          30,
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          1,
+          7,
+          11,
+          17,
+          52
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-29",
+    "hour": 22,
+    "guests_count": 80,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          30,
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          1,
+          7,
+          11,
+          17,
+          52
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 7,
+    "guests_count": 58,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          28
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          32,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          1,
+          4,
+          8
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 8,
+    "guests_count": 72,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          28
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          32,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          1,
+          4,
+          8,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 9,
+    "guests_count": 75,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          28
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          32,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          1,
+          4,
+          8,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 10,
+    "guests_count": 70,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          28
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          32,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          1,
+          4,
+          8,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 11,
+    "guests_count": 82,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          28
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          32,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          1,
+          4,
+          8,
+          56,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 12,
+    "guests_count": 145,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          28
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          32,
+          44,
+          45,
+          51
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          4,
+          8,
+          23,
+          56,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 13,
+    "guests_count": 156,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          28
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          32,
+          38,
+          44,
+          45,
+          51
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          4,
+          8,
+          23,
+          56,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 14,
+    "guests_count": 141,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          28
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          32,
+          38,
+          45,
+          51
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          4,
+          8,
+          15,
+          23,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 15,
+    "guests_count": 136,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          28
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          32,
+          38,
+          45,
+          51
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          4,
+          7,
+          15,
+          23,
+          31,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 16,
+    "guests_count": 126,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          27,
+          34,
+          38,
+          45
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          7,
+          14,
+          15,
+          23,
+          31
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 17,
+    "guests_count": 130,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          27,
+          34,
+          39,
+          41
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          7,
+          14,
+          15,
+          23,
+          31
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 18,
+    "guests_count": 138,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          27,
+          34,
+          39,
+          41
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          7,
+          14,
+          15,
+          23,
+          31,
+          43
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 19,
+    "guests_count": 128,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          27,
+          34,
+          39,
+          41
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          7,
+          14,
+          15,
+          31,
+          43
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 20,
+    "guests_count": 112,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          33,
+          36,
+          41
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          7,
+          14,
+          15,
+          31,
+          43
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 21,
+    "guests_count": 94,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          33,
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          7,
+          14,
+          15,
+          31,
+          43
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-04-30",
+    "hour": 22,
+    "guests_count": 82,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          20
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          33,
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          7,
+          14,
+          15,
+          31,
+          43
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 7,
+    "guests_count": 49,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          8,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          7,
+          28
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 8,
+    "guests_count": 61,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          8,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          7,
+          28,
+          31
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 9,
+    "guests_count": 71,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          8,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          7,
+          28,
+          31
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 10,
+    "guests_count": 68,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          8,
+          32
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          7,
+          14,
+          28,
+          31
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 11,
+    "guests_count": 77,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          8,
+          32,
+          45
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          7,
+          14,
+          28,
+          31
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          47
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 12,
+    "guests_count": 135,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          8,
+          32,
+          45,
+          51
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          5,
+          7,
+          14,
+          21,
+          28,
+          31,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          22,
+          47
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 13,
+    "guests_count": 150,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          8,
+          18,
+          32,
+          45,
+          51
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          5,
+          7,
+          14,
+          21,
+          28,
+          31,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          22,
+          47
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 14,
+    "guests_count": 139,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          18,
+          32,
+          45,
+          51
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          5,
+          7,
+          14,
+          21,
+          28,
+          31,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          22,
+          47
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 15,
+    "guests_count": 137,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          18,
+          32,
+          45,
+          51
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          7,
+          11,
+          14,
+          28,
+          31,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          22,
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 16,
+    "guests_count": 128,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          53
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          18,
+          25,
+          27,
+          45
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          26
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          4,
+          11,
+          14,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          22,
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 17,
+    "guests_count": 132,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          53
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          25,
+          27,
+          42,
+          55
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          26
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          4,
+          11,
+          14,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          12,
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 18,
+    "guests_count": 136,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          53
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          25,
+          27,
+          42,
+          55
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          26
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          1,
+          4,
+          11,
+          14,
+          49,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          12,
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 19,
+    "guests_count": 130,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          30,
+          42,
+          55
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          58
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          4,
+          11,
+          49,
+          59,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          12,
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 20,
+    "guests_count": 112,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          30,
+          50,
+          55
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 2,
+        "employees": [
+          36,
+          58
+        ],
+        "status": "over"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          1,
+          4,
+          11,
+          49,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 21,
+    "guests_count": 94,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          6,
+          30,
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 2,
+        "employees": [
+          36,
+          58
+        ],
+        "status": "over"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          1,
+          4,
+          11,
+          49,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-01",
+    "hour": 22,
+    "guests_count": 80,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          3
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          6,
+          30,
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          1,
+          4,
+          11,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 7,
+    "guests_count": 46,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          13
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          32,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          14,
+          15
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 8,
+    "guests_count": 63,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          13
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          32,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          14,
+          15,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 9,
+    "guests_count": 73,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          13
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          32,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          14,
+          15,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 10,
+    "guests_count": 70,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          48
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          16,
+          32,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          5,
+          14,
+          15,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 11,
+    "guests_count": 81,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          48
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          16,
+          66,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          5,
+          14,
+          15,
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 12,
+    "guests_count": 136,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          48
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          16,
+          37,
+          66,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          1,
+          5,
+          14,
+          15,
+          21,
+          44,
+          56
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          52,
+          60
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 13,
+    "guests_count": 152,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          51
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          9,
+          18,
+          37,
+          66,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          1,
+          5,
+          14,
+          15,
+          21,
+          44,
+          56
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          52,
+          60
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 14,
+    "guests_count": 140,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          51
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          9,
+          18,
+          37,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          1,
+          14,
+          21,
+          31,
+          44,
+          56,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          52,
+          60
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 15,
+    "guests_count": 137,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          51
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          9,
+          18,
+          25,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          1,
+          11,
+          14,
+          31,
+          44,
+          56,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          33,
+          52
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 16,
+    "guests_count": 129,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          9,
+          18,
+          25,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          4,
+          11,
+          31,
+          56,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          10,
+          33
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 17,
+    "guests_count": 132,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          25,
+          30,
+          42,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          4,
+          11,
+          31,
+          56,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          10,
+          33
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 18,
+    "guests_count": 132,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          30,
+          42,
+          55,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          1,
+          4,
+          11,
+          31,
+          56,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          10,
+          33
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 19,
+    "guests_count": 124,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          30,
+          42,
+          55
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          0,
+          1,
+          4,
+          11,
+          31,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          10,
+          33
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 20,
+    "guests_count": 114,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          30,
+          50,
+          55
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          0,
+          1,
+          4,
+          11,
+          31,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 21,
+    "guests_count": 95,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          6,
+          30,
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          0,
+          4,
+          11,
+          31,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-02",
+    "hour": 22,
+    "guests_count": 81,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          54
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          6,
+          30,
+          50
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          2
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          4,
+          11,
+          31,
+          59
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 7,
+    "guests_count": 45,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          13,
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          7,
+          54
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          4
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 8,
+    "guests_count": 60,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          13,
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          7,
+          54,
+          65
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          4
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 9,
+    "guests_count": 74,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          13,
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          7,
+          54,
+          65
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          4
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 10,
+    "guests_count": 69,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          13,
+          16,
+          47
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          7,
+          23,
+          54,
+          65
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          4
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 11,
+    "guests_count": 79,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          16,
+          47,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          7,
+          23,
+          54,
+          64
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          4
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 12,
+    "guests_count": 136,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          16,
+          29,
+          47,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          7,
+          21,
+          23,
+          28,
+          54,
+          56,
+          64
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          4,
+          38
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 13,
+    "guests_count": 148,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          29,
+          37,
+          47,
+          63,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          19
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          7,
+          21,
+          23,
+          28,
+          54,
+          56,
+          64
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          4,
+          38
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 14,
+    "guests_count": 140,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          29,
+          37,
+          63,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          7,
+          21,
+          23,
+          28,
+          52,
+          56,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          4,
+          38
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 15,
+    "guests_count": 136,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          44
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          25,
+          37,
+          63,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 7,
+        "assigned": 7,
+        "employees": [
+          7,
+          23,
+          31,
+          43,
+          52,
+          56,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          4,
+          38
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 16,
+    "guests_count": 127,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          15
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          25,
+          57,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          23,
+          31,
+          43,
+          52,
+          56,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          38,
+          62
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 17,
+    "guests_count": 131,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          15
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          25,
+          57,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          23,
+          31,
+          43,
+          52,
+          56,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          38,
+          62
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 18,
+    "guests_count": 132,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          15
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          41,
+          57,
+          68
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          23,
+          31,
+          43,
+          52,
+          56,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          38,
+          62
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 19,
+    "guests_count": 125,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          15
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          6,
+          36,
+          41,
+          57
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 6,
+        "assigned": 6,
+        "employees": [
+          31,
+          43,
+          52,
+          56,
+          66,
+          67
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 2,
+        "assigned": 2,
+        "employees": [
+          17,
+          38
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 20,
+    "guests_count": 112,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          15
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          2,
+          6,
+          36,
+          41
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          31,
+          43,
+          52,
+          66,
+          67
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 21,
+    "guests_count": 95,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          15
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          2,
+          6,
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 5,
+        "assigned": 5,
+        "employees": [
+          31,
+          43,
+          52,
+          66,
+          67
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      }
+    ]
+  },
+  {
+    "date": "2026-05-03",
+    "hour": 22,
+    "guests_count": 81,
+    "stations": [
+      {
+        "station_key": "BVR",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          15
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "C",
+        "required": 3,
+        "assigned": 3,
+        "employees": [
+          2,
+          6,
+          36
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "FF",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          33
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "K",
+        "required": 4,
+        "assigned": 4,
+        "employees": [
+          31,
+          43,
+          52,
+          66
+        ],
+        "status": "exact"
+      },
+      {
+        "station_key": "TS",
+        "required": 1,
+        "assigned": 1,
+        "employees": [
+          17
+        ],
+        "status": "exact"
+      }
+    ]
+  }
+]
