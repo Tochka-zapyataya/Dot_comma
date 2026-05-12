@@ -60,7 +60,7 @@ def validate_schedule(
     _check_no_double_station(schedule, errors)
     _check_worktime_limit(schedule, data, errors)
     if not omit_max_working_days_rule:
-        _check_max_5_days(schedule, errors)
+        _check_max_working_days_tz(schedule, errors)
     used, unused = _check_all_employees_used(schedule, data, errors)
 
     prio_lookup_station = dict(
@@ -104,7 +104,9 @@ def validate_schedule(
     is_valid = len(errors) == 0
 
     total_slots = int(len(requirements_df))
-    total_required_hours = int(requirements_df["required_labor"].clip(lower=1).sum())
+    total_required_hours = int(
+        requirements_df["required_labor"].clip(lower=0).sum(),
+    )
     total_assigned_hours = int(schedule["duration"].sum())
     valid_slots = (
         total_slots
@@ -300,13 +302,16 @@ def _check_worktime_limit(schedule: pd.DataFrame, data: dict, errors: list[str])
         )
 
 
-def _check_max_5_days(schedule: pd.DataFrame, errors: list[str]) -> None:
+def _check_max_working_days_tz(schedule: pd.DataFrame, errors: list[str]) -> None:
+    limit = int(config.MAX_WORKING_DAYS_PER_EMPLOYEE)
     days = schedule.groupby("employee_id")["ds"].nunique()
-    bad = days[days > 5]
+    bad = days[days > limit]
     if len(bad):
         errors.append(
-            f"{len(bad)} employees have more than 5 working days. "
-            f"Sample: {bad.head(3).to_dict()}"
+            f"{len(bad)} employees exceed TZ §6.6 max working days "
+            f"({limit} on {len(config.TARGET_DATES)}-day horizon, "
+            f"{config.MIN_REST_DAYS_PER_EMPLOYEE} rest days min). "
+            f"Sample: {bad.head(3).to_dict()}",
         )
 
 
@@ -358,7 +363,20 @@ def _check_coverage(
             & (f_arr > r.hour)
         )
         actual = int(mask.sum())
-        req_eff = max(int(r.required_labor), 1)
+        req_eff = int(r.required_labor)
+
+        if req_eff <= 0:
+            if actual != 0:
+                too_much += 1
+                if len(coverage_errors) < 5:
+                    coverage_errors.append(
+                        f"zero-req staffed: {r.ds} h={r.hour} {r.station_key} "
+                        f"req={req_eff} actual={actual}"
+                    )
+            else:
+                exact += 1
+            continue
+
         diff = actual - req_eff
 
         if actual < req_eff:
@@ -385,8 +403,8 @@ def _check_coverage(
         errors.append(f"{under} understaffed slots. Examples: {coverage_errors[:3]}")
     if too_much > 0:
         errors.append(
-            f"{too_much} slots overstaffed by more than +2. "
-            f"Examples: {[e for e in coverage_errors if 'over+' in e][:3]}"
+            f"{too_much} slots with invalid staffing (>+2 vs need, or staff on zero-need slot). "
+            f"Examples: {[e for e in coverage_errors if 'over+' in e or 'zero-req' in e][:3]}"
         )
 
     return {

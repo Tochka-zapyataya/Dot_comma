@@ -1,5 +1,6 @@
 import logging
 
+import numpy as np
 import pandas as pd
 
 from . import config
@@ -18,103 +19,160 @@ def build_candidates(data: dict) -> pd.DataFrame:
     station_prio = data["station_priorities"]
     shifts_tbl = data["shifts"]
 
-    shift_durations = sorted(int(x) for x in shifts_tbl["shift_duration"].unique().tolist())
+    shift_durations = sorted(
+        int(x) for x in shifts_tbl["shift_duration"].unique().tolist()
+    )
+    min_shift_dur = min(shift_durations)
+
     dur_to_shift_prio_raw: dict[int, int] = {}
     for r in shifts_tbl.itertuples():
         d = int(r.shift_duration)
         p = int(r.shift_priority)
         if d in dur_to_shift_prio_raw and dur_to_shift_prio_raw[d] != p:
-            raise ValueError(f"Contradictory shift_priority for duration {d} in shifts.csv")
+            raise ValueError(
+                f"Contradictory shift_priority for duration {d} in shifts.csv",
+            )
         dur_to_shift_prio_raw[d] = p
 
     weekday_by_date = {
         ds: pd.to_datetime(ds).weekday() + 1 for ds in config.TARGET_DATES
     }
 
-    sched_lookup: dict[tuple[int, int], list[tuple[int, int]]] = {}
-    for r in sched.itertuples():
-        sched_lookup.setdefault((int(r.employee_id), int(r.day)), []).append(
-            (int(r.starttime), int(r.finishtime))
+    sched_long = sched.rename(
+        columns={"starttime": "win_start", "finishtime": "win_end"},
+    )
+
+    sl = staff_limits.copy()
+    dates_df = pd.DataFrame({"ds": list(config.TARGET_DATES)})
+    dates_df["weekday"] = dates_df["ds"].map(weekday_by_date)
+    sl["_k"] = 1
+    dates_df = dates_df.copy()
+    dates_df["_k"] = 1
+    staff_dates = sl.merge(dates_df, on="_k").drop(columns="_k")
+
+    base = staff_dates.merge(
+        sched_long,
+        left_on=["employee_id", "weekday"],
+        right_on=["employee_id", "day"],
+        how="inner",
+    )
+    if "day" in base.columns:
+        base = base.drop(columns=["day"])
+
+    base["eff_start"] = np.maximum(base["win_start"].to_numpy(), config.OPEN_HOUR)
+    base["eff_end"] = np.minimum(base["win_end"].to_numpy(), config.CLOSE_HOUR)
+    base = base.loc[
+        base["eff_end"] - base["eff_start"] >= min_shift_dur
+    ].reset_index(drop=True)
+
+    base["span"] = base["eff_end"] - base["eff_start"]
+    base["max_dur"] = base[["shift_limit", "worktime_limit", "span"]].min(axis=1)
+
+    durs = pd.DataFrame({"duration": shift_durations})
+    bd = base.assign(_k=1).merge(durs.assign(_k=1), on="_k").drop(columns="_k")
+    bd = bd.loc[bd["duration"] <= bd["max_dur"]].reset_index(drop=True)
+
+    bd["shift_priority_raw"] = bd["duration"].map(dur_to_shift_prio_raw)
+    bd = bd.dropna(subset=["shift_priority_raw"]).reset_index(drop=True)
+    bd["shift_priority_raw"] = bd["shift_priority_raw"].astype(int)
+    bd["shift_penalty"] = bd["shift_priority_raw"].map(_SHIFT_PRIO_PENALTY)
+
+    if bd.empty:
+        raise RuntimeError(
+            "No feasible candidates after vectorized expand (windows × durations).",
         )
 
-    prio_lookup: dict[tuple[int, str], int] = {}
-    for r in station_prio.itertuples():
-        prio_lookup[(int(r.employee_id), str(r.station_key))] = int(r.station_priority)
+    es = bd["eff_start"].to_numpy(dtype=np.int64)
+    ee = bd["eff_end"].to_numpy(dtype=np.int64)
+    darr = bd["duration"].to_numpy(dtype=np.int64)
+    n = ee - darr - es + 1
+    bd = bd.assign(_n=n)
+    bd = bd.loc[bd["_n"] > 0].drop(columns=["_n"]).reset_index(drop=True)
 
-    rows = []
-    cid = 0
-    missing_prio_warnings = 0
-
-    for emp_row in staff_limits.itertuples():
-        emp = int(emp_row.employee_id)
-        shift_lim = int(emp_row.shift_limit)
-        worktime_lim = int(emp_row.worktime_limit)
-
-        for ds in config.TARGET_DATES:
-            wd = weekday_by_date[ds]
-            windows = sched_lookup.get((emp, wd), [])
-            for (win_start, win_end) in windows:
-                eff_start = max(win_start, config.OPEN_HOUR)
-                eff_end = min(win_end, config.CLOSE_HOUR)
-                if eff_end - eff_start < min(shift_durations):
-                    continue
-                max_dur = min(shift_lim, worktime_lim, eff_end - eff_start)
-
-                for duration in shift_durations:
-                    if duration > max_dur:
-                        continue
-                    sp_raw = dur_to_shift_prio_raw.get(duration)
-                    if sp_raw is None:
-                        raise ValueError(f"Duration {duration} not listed in shifts.csv")
-                    shift_pen = _SHIFT_PRIO_PENALTY[sp_raw]
-                    for start in range(eff_start, eff_end - duration + 1):
-                        end = start + duration
-                        for station in config.STATIONS:
-                            key = (emp, station)
-                            if key in prio_lookup:
-                                station_priority = prio_lookup[key]
-                            else:
-                                station_priority = 4
-                                missing_prio_warnings += 1
-
-                            st_pen_h = _STATION_PRIO_PENALTY[station_priority]
-                            station_penalty_hours = int(st_pen_h * duration)
-                            base_cost = int(
-                                config.STATION_PRIORITY_WEIGHT * station_penalty_hours
-                                + config.SHIFT_PRIORITY_WEIGHT * shift_pen
-                                + config.SHIFT_COUNT_WEIGHT
-                                - config.GREEDY_DURATION_BIAS * duration
-                            )
-                            rows.append({
-                                "candidate_id": cid,
-                                "employee_id": emp,
-                                "ds": ds,
-                                "weekday": wd,
-                                "station_key": station,
-                                "starttime": int(start),
-                                "finishtime": int(end),
-                                "duration": int(duration),
-                                "shift_priority_raw": int(sp_raw),
-                                "shift_penalty": int(shift_pen),
-                                "station_priority": int(station_priority),
-                                "station_penalty_per_hour": int(st_pen_h),
-                                "station_penalty_hours": int(station_penalty_hours),
-                                "base_cost": int(base_cost),
-                            })
-                            cid += 1
-
-    if not rows:
+    if bd.empty:
         raise RuntimeError(
             "No feasible candidates generated. "
-            "Check sched.csv windows, shift_limits, and shift durations."
+            "Check sched.csv windows, shift_limits, and shift durations.",
         )
 
-    df = pd.DataFrame(rows)
+    es = bd["eff_start"].to_numpy(dtype=np.int64)
+    ee = bd["eff_end"].to_numpy(dtype=np.int64)
+    darr = bd["duration"].to_numpy(dtype=np.int64)
+    n = (ee - darr - es + 1).astype(np.int64)
+    idx = np.repeat(np.arange(len(bd), dtype=np.int64), n)
+    csn = np.concatenate([[0], np.cumsum(n[:-1])]) if len(n) else np.array([0])
+    inner = np.arange(int(n.sum()), dtype=np.int64) - np.repeat(csn, n)
+    starts_flat = es[idx] + inner
+
+    bd_exp = bd.iloc[idx].reset_index(drop=True)
+    bd_exp["starttime"] = starts_flat.astype(np.int64)
+    bd_exp["finishtime"] = (bd_exp["starttime"] + bd_exp["duration"]).astype(np.int64)
+
+    stations_df = pd.DataFrame({"station_key": config.STATIONS})
+    cand = bd_exp.assign(_k=1).merge(stations_df.assign(_k=1), on="_k").drop(
+        columns="_k",
+    )
+
+    cand = cand.merge(
+        station_prio,
+        on=["employee_id", "station_key"],
+        how="left",
+    )
+    missing_prio_warnings = int(cand["station_priority"].isna().sum())
+    cand["station_priority"] = cand["station_priority"].fillna(4).astype(int)
+
+    if config.FILTER_DOMINATED_PRIO4_STATION_CANDIDATES:
+        _slot = ["employee_id", "ds", "starttime", "finishtime", "duration"]
+        gmin_slot = cand.groupby(_slot)["station_priority"].transform("min")
+        cand = cand.loc[
+            ~((cand["station_priority"] == 4) & (gmin_slot < 4))
+        ].reset_index(drop=True)
+
+    cand["station_penalty_per_hour"] = cand["station_priority"].map(
+        _STATION_PRIO_PENALTY,
+    )
+    cand["station_penalty_hours"] = (
+        cand["station_penalty_per_hour"] * cand["duration"]
+    ).astype(int)
+
+    cand["base_cost"] = (
+        config.STATION_PRIORITY_WEIGHT * cand["station_penalty_hours"]
+        + config.SHIFT_PRIORITY_WEIGHT * cand["shift_penalty"]
+        + config.SHIFT_COUNT_WEIGHT
+        - config.GREEDY_DURATION_BIAS * cand["duration"]
+    ).astype(int)
+
+    cand["weekday"] = cand["ds"].map(weekday_by_date)
+    cand["candidate_id"] = np.arange(len(cand), dtype=np.int64)
+
+    cols = [
+        "candidate_id",
+        "employee_id",
+        "ds",
+        "weekday",
+        "station_key",
+        "starttime",
+        "finishtime",
+        "duration",
+        "shift_priority_raw",
+        "shift_penalty",
+        "station_priority",
+        "station_penalty_per_hour",
+        "station_penalty_hours",
+        "base_cost",
+    ]
+    df = cand[cols].copy()
+
+    if df.empty:
+        raise RuntimeError(
+            "No feasible candidates after filtering dominated prio=4 stations.",
+        )
 
     if missing_prio_warnings > 0:
         logger.warning(
             "Missing station_priority for %d (employee, station) pairs; "
-            "defaulted to 4.", missing_prio_warnings,
+            "defaulted to 4.",
+            missing_prio_warnings,
         )
 
     logger.info(
@@ -124,13 +182,16 @@ def build_candidates(data: dict) -> pd.DataFrame:
         len(df) / max(df["employee_id"].nunique(), 1),
     )
 
-    emp_with_no_cands = (
-        set(staff_limits["employee_id"].tolist()) - set(df["employee_id"].unique())
+    emp_with_no_cands = sorted(
+        set(staff_limits["employee_id"].tolist()) - set(df["employee_id"].unique()),
     )
     if emp_with_no_cands:
         logger.warning(
-            "Employees with NO candidates (will be unused): %s",
-            sorted(emp_with_no_cands),
+            "Employees with NO candidates (strict mode may be INFEASIBLE): %s",
+            emp_with_no_cands,
         )
+
+    df.attrs["employees_without_candidates"] = emp_with_no_cands
+    df.attrs["missing_station_priority_defaults"] = missing_prio_warnings
 
     return df

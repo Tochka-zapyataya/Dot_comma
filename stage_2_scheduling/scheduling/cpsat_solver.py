@@ -16,6 +16,7 @@ class _CPSatCtx:
     x: dict[int, object]
     overstaff: dict[tuple[str, int, str], object]
     unused: dict[int, object]
+    balance_span: object
     cand_ids: list[int]
     duration_by_cid: dict[int, int]
     station_pen_by_cid: dict[int, int]
@@ -75,12 +76,16 @@ def _build_cpsat_ctx(
 
     for r in requirements_df.itertuples():
         key = (str(r.ds), int(r.hour), str(r.station_key))
-        req = max(int(r.required_labor), 1)
+        req = int(r.required_labor)
         covering = cand_covering_slot.get(key, [])
         actual = sum(x[cid] for cid in covering) if covering else 0
-        model.Add(actual >= req)
-        model.Add(actual <= req + 2)
-        model.Add(overstaff[key] >= actual - req)
+        if req <= 0:
+            model.Add(actual == 0)
+            model.Add(overstaff[key] == 0)
+        else:
+            model.Add(actual >= req)
+            model.Add(actual <= req + 2)
+            model.Add(overstaff[key] >= actual - req)
 
     for (_, _), cids in cand_by_emp_day.items():
         if len(cids) > 1:
@@ -96,8 +101,11 @@ def _build_cpsat_ctx(
             <= int(worktime_by_emp[emp])
         )
 
+    # ТЗ п. 6.6 (≥2 выходных на горизонте) + п. 6.2 (≤1 смена/день): число выбранных смен
+    # = число рабочих дней ≤ (|TARGET_DATES| − MIN_REST_DAYS).
+    max_wd = int(config.MAX_WORKING_DAYS_PER_EMPLOYEE)
     for emp, cids in cand_by_emp.items():
-        model.Add(sum(x[cid] for cid in cids) <= 5)
+        model.Add(sum(x[cid] for cid in cids) <= max_wd)
 
     for emp in employees:
         cids = cand_by_emp.get(emp, [])
@@ -137,20 +145,12 @@ def _build_cpsat_ctx(
     balance_span = model.NewIntVar(0, global_cap, "week_hours_span")
     model.Add(balance_span == max_h - min_h)
 
-    total_station_penalty = sum(
-        x[cid] * int(station_pen_by_cid[cid]) for cid in cand_ids
-    )
-    total_shift_prio_penalty = sum(
-        x[cid] * int(shift_pen_by_cid[cid]) for cid in cand_ids
-    )
-    total_selected_shifts = sum(x[cid] for cid in cand_ids)
-    total_overstaff = sum(overstaff.values())
-
-    ctx = _CPSatCtx(
+    return _CPSatCtx(
         model=model,
         x=x,
         overstaff=overstaff,
         unused=unused,
+        balance_span=balance_span,
         cand_ids=cand_ids,
         duration_by_cid=duration_by_cid,
         station_pen_by_cid=station_pen_by_cid,
@@ -163,30 +163,45 @@ def _build_cpsat_ctx(
         cand_by_emp=dict(cand_by_emp),
     )
 
-    setattr(
-        ctx,
-        "_optimize_terms",
-        (total_station_penalty, total_shift_prio_penalty, total_selected_shifts,
-         balance_span, total_overstaff),
+
+def _apply_objective(
+    ctx: _CPSatCtx,
+    enforce_all_employees_used: bool,
+) -> None:
+    from ortools.sat.python import cp_model
+
+    le = cp_model.LinearExpr
+    cand_ids = ctx.cand_ids
+    vars_x = [ctx.x[cid] for cid in cand_ids]
+    coeff_stat = [int(ctx.station_pen_by_cid[cid]) for cid in cand_ids]
+    coeff_shift = [int(ctx.shift_pen_by_cid[cid]) for cid in cand_ids]
+    coeff_one = [1] * len(cand_ids)
+
+    total_station_penalty = le.WeightedSum(vars_x, coeff_stat)
+    total_shift_prio_penalty = le.WeightedSum(vars_x, coeff_shift)
+    total_selected_shifts = le.WeightedSum(vars_x, coeff_one)
+
+    over_vars = list(ctx.overstaff.values())
+    total_overstaff = (
+        le.WeightedSum(over_vars, [1] * len(over_vars)) if over_vars else 0
     )
-    return ctx
 
-
-def _apply_objective(ctx: _CPSatCtx) -> None:
-    (
-        total_station_penalty,
-        total_shift_prio_penalty,
-        total_selected_shifts,
-        balance_span,
-        total_overstaff,
-    ) = ctx._optimize_terms
-    ctx.model.Minimize(
+    objective = (
         config.STATION_PRIORITY_WEIGHT * total_station_penalty
         + config.OVERSTAFF_WEIGHT * total_overstaff
         + config.SHIFT_PRIORITY_WEIGHT * total_shift_prio_penalty
         + config.SHIFT_COUNT_WEIGHT * total_selected_shifts
-        + config.HOUR_BALANCE_WEIGHT * balance_span
+        + config.HOUR_BALANCE_WEIGHT * ctx.balance_span
     )
+    if not enforce_all_employees_used:
+        uvars = [ctx.unused[e] for e in ctx.employees]
+        objective = (
+            objective
+            + config.UNUSED_EMPLOYEE_SOFT_WEIGHT
+            * le.WeightedSum(uvars, [1] * len(uvars))
+        )
+
+    ctx.model.Minimize(objective)
 
 
 def _apply_hints_from_assignment(ctx: _CPSatCtx, selected_ids: set[int]) -> None:
@@ -277,6 +292,11 @@ def solve_cpsat_feasibility(
 
     if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
         info["objective_value"] = None
+        info["diagnostic"] = (
+            "No feasible solution within time limit or model infeasible "
+            f"(enforce_all_employees_used={enforce_all_employees_used}). "
+            "Check employees without shift candidates and coverage limits."
+        )
         return None, info
 
     info["objective_value"] = None
@@ -302,7 +322,7 @@ def solve_cpsat_optimize(
     ctx = _build_cpsat_ctx(
         requirements_df, candidates_df, data, enforce_all_employees_used,
     )
-    _apply_objective(ctx)
+    _apply_objective(ctx, enforce_all_employees_used)
     if hint_selected_ids:
         _apply_hints_from_assignment(ctx, hint_selected_ids)
 
@@ -322,6 +342,9 @@ def solve_cpsat_optimize(
 
     if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
         info["objective_value"] = None
+        info["diagnostic"] = (
+            "Optimizer found no improving solution in time or model infeasible."
+        )
         return None, info
 
     info["objective_value"] = float(solver.ObjectiveValue())
@@ -337,6 +360,113 @@ def solve_cpsat_optimize(
         info["wall_time_seconds"],
     )
     return sch, info
+
+
+def solve_cpsat_two_phase(
+    requirements_df: pd.DataFrame,
+    candidates_df: pd.DataFrame,
+    data: dict,
+    *,
+    enforce_all_employees_used: bool,
+    total_time_seconds: float | None = None,
+) -> tuple[pd.DataFrame | None, dict, pd.DataFrame | None, dict]:
+    from ortools.sat.python import cp_model
+
+    budget = float(
+        total_time_seconds if total_time_seconds is not None
+        else config.MAX_TIME_SECONDS
+    )
+    feas_cap = budget
+
+    ctx = _build_cpsat_ctx(
+        requirements_df, candidates_df, data, enforce_all_employees_used,
+    )
+
+    logger.info(
+        "CP-SAT two-phase | candidates=%d | enforce_all_used=%s | "
+        "phase1_max=%.2fs | total_budget=%.2fs | workers=%d",
+        len(ctx.cand_ids),
+        enforce_all_employees_used,
+        feas_cap,
+        budget,
+        1 if config.DETERMINISTIC else config.NUM_SEARCH_WORKERS,
+    )
+
+    solver1, status1 = _run_solver(ctx.model, feas_cap)
+    st1_name = solver1.StatusName(status1)
+    feas_info = _info_base(
+        ctx, "feasibility", enforce_all_employees_used,
+        st1_name, solver1.WallTime(),
+    )
+    feas_info["objective_mode"] = "none"
+    feas_wall = float(solver1.WallTime())
+    opt_cap = max(0.01, budget - feas_wall)
+
+    opt_skipped: dict = {
+        "status": "SKIPPED_NO_FEASIBLE_START",
+        "phase": "optimize",
+        "wall_time_seconds": 0.0,
+        "enforce_all_employees_used": enforce_all_employees_used,
+        "objective_mode": "weighted",
+        "objective_value": None,
+    }
+
+    if status1 not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
+        feas_info["objective_value"] = None
+        feas_info["diagnostic"] = (
+            "Feasibility phase failed: "
+            + st1_name
+            + ". If INFEASIBLE with strict employee usage, some staff may have "
+              "no candidates or rules contradict coverage."
+        )
+        return None, feas_info, None, opt_skipped
+
+    feas_sch = _schedule_from_solution(ctx, solver1)
+    feas_info["objective_value"] = None
+    feas_info.update(_finalize_metrics(ctx, solver1, feas_sch))
+    logger.info(
+        "Feasibility %s | shifts=%d | over=%d | %.2fs | optimize budget=%.2fs",
+        st1_name,
+        len(feas_sch),
+        feas_info.get("total_overstaff", 0),
+        feas_wall,
+        opt_cap,
+    )
+
+    hint_ids = candidate_ids_from_schedule(feas_sch, candidates_df)
+    _apply_objective(ctx, enforce_all_employees_used)
+    if hint_ids:
+        _apply_hints_from_assignment(ctx, hint_ids)
+
+    solver2, status2 = _run_solver(ctx.model, opt_cap)
+    st2_name = solver2.StatusName(status2)
+    opt_info = _info_base(
+        ctx, "optimize", enforce_all_employees_used,
+        st2_name, solver2.WallTime(),
+    )
+    opt_info["objective_mode"] = "weighted"
+
+    if status2 not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
+        opt_info["objective_value"] = None
+        opt_info["diagnostic"] = (
+            "Optimize phase did not find a solution in remaining time or INFEASIBLE."
+        )
+        logger.warning("Optimize %s — using feasibility schedule if valid.", st2_name)
+        return feas_sch, feas_info, None, opt_info
+
+    opt_info["objective_value"] = float(solver2.ObjectiveValue())
+    opt_info["best_bound"] = float(solver2.BestObjectiveBound())
+    opt_sch = _schedule_from_solution(ctx, solver2)
+    opt_info.update(_finalize_metrics(ctx, solver2, opt_sch))
+    logger.info(
+        "Optimize %s | obj=%.0f | shifts=%d | over=%d | %.2fs",
+        st2_name,
+        opt_info["objective_value"],
+        len(opt_sch),
+        opt_info.get("total_overstaff", 0),
+        opt_info["wall_time_seconds"],
+    )
+    return feas_sch, feas_info, opt_sch, opt_info
 
 
 def _finalize_metrics(ctx: _CPSatCtx, solver: object, schedule: pd.DataFrame) -> dict:
@@ -384,19 +514,3 @@ def candidate_ids_from_schedule(
     if j.empty:
         return None
     return set(int(x) for x in j["candidate_id"].tolist())
-
-
-def solve_cpsat_feasibility_diagnostic_relaxed(
-    requirements_df: pd.DataFrame,
-    candidates_df: pd.DataFrame,
-    data: dict,
-    max_time_seconds: int | float | None = None,
-) -> tuple[pd.DataFrame | None, dict]:
-    return solve_cpsat_feasibility(
-        requirements_df,
-        candidates_df,
-        data,
-        enforce_all_employees_used=False,
-        max_time_seconds=max_time_seconds,
-    )
-

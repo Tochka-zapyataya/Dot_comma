@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 
 from . import config
+from .table_workbook import write_schedule_table_xlsx
 
 
 logger = logging.getLogger(__name__)
@@ -21,7 +22,6 @@ def export_all(
     forecast_meta: dict,
     output_dir: Path | None = None,
     write_final_schedule_csv_xlsx: bool = True,
-    debug_greedy_schedule_df: pd.DataFrame | None = None,
 ) -> None:
     out = output_dir or config.OUTPUT_DIR
     out.mkdir(parents=True, exist_ok=True)
@@ -29,6 +29,7 @@ def export_all(
     stale_final_names = (
         "schedule.xlsx",
         "schedule.csv",
+        "table.xlsx",
         "coverage_heatmap.csv",
         "employee_summary.csv",
         "timeline.json",
@@ -42,11 +43,6 @@ def export_all(
     sd = schedule_df
     sel_keys = (
         _schedule_selected_keys(sd) if sd is not None and not sd.empty else set()
-    )
-    greedy_keys = (
-        _schedule_selected_keys(debug_greedy_schedule_df)
-        if debug_greedy_schedule_df is not None and not debug_greedy_schedule_df.empty
-        else set()
     )
 
     requirements_df.to_csv(out / "requirements.csv", index=False)
@@ -62,7 +58,6 @@ def export_all(
     sf = [t in sel_keys for t in keys_c]
     cands_export["selected"] = [int(v) for v in sf]
     cands_export["selected_final"] = sf
-    cands_export["selected_greedy_debug"] = [t in greedy_keys for t in keys_c]
     cands_export.to_csv(out / "candidates.csv", index=False)
 
     if sd is None or sd.empty:
@@ -71,6 +66,7 @@ def export_all(
         final = sd[["ds", "station_key", "employee_id", "starttime", "finishtime"]].copy()
         final.to_excel(out / "schedule.xlsx", index=False)
         final.to_csv(out / "schedule.csv", index=False)
+        write_schedule_table_xlsx(final, out / "table.xlsx")
 
         coverage_df = _build_coverage_heatmap(sd, requirements_df)
         coverage_df.to_csv(out / "coverage_heatmap.csv", index=False)
@@ -83,16 +79,6 @@ def export_all(
         timeline = _build_timeline_json(sd, requirements_df, forecast_df)
         _save_json(timeline, out / "timeline.json")
 
-    if debug_greedy_schedule_df is not None and not debug_greedy_schedule_df.empty:
-        gs = debug_greedy_schedule_df[
-            ["ds", "station_key", "employee_id", "starttime", "finishtime"]
-        ].copy()
-        gs.to_excel(out / "schedule_greedy_fallback.xlsx", index=False)
-        gs.to_csv(out / "schedule_greedy_fallback.csv", index=False)
-
-        dbg_cov = _build_coverage_heatmap(gs, requirements_df)
-        dbg_cov.to_csv(out / "coverage_heatmap_greedy_fallback.csv", index=False)
-
     _save_json(validation, out / "validation_report.json")
 
     full_diag = {**diagnostics, "forecast_metadata": forecast_meta}
@@ -101,10 +87,7 @@ def export_all(
     if write_final_schedule_csv_xlsx:
         logger.info("Exported FINAL schedule artifacts to %s", out)
     else:
-        logger.info(
-            "Exported without final schedule.xlsx (invalid CP-SAT) to %s", out)
-    if debug_greedy_schedule_df is not None and not debug_greedy_schedule_df.empty:
-        logger.info("Exported greedy DEBUG schedules to %s", out)
+        logger.info("Exported without final schedule.xlsx (invalid CP-SAT) to %s", out)
 
 
 
@@ -131,16 +114,25 @@ def _build_coverage_heatmap(
     for r in requirements_df.itertuples():
         key = (str(r.ds), int(r.hour), str(r.station_key))
         actual = actual_counts.get(key, 0)
-        req_eff = max(int(r.required_labor), 1)
-        diff = actual - req_eff
-        if actual < req_eff:
-            status = "under"
-        elif diff == 0:
-            status = "exact"
-        elif diff <= 2:
-            status = "over"
+        req_raw = int(r.required_labor)
+        if req_raw <= 0:
+            req_eff = 0
+            if actual == 0:
+                status = "exact"
+            else:
+                status = "too_much"
+            diff = actual - req_eff
         else:
-            status = "too_much"
+            req_eff = req_raw
+            diff = actual - req_eff
+            if actual < req_eff:
+                status = "under"
+            elif diff == 0:
+                status = "exact"
+            elif diff <= 2:
+                status = "over"
+            else:
+                status = "too_much"
         rows.append({
             "ds": r.ds,
             "hour": int(r.hour),
@@ -204,7 +196,7 @@ def _build_timeline_json(
     requirements_index: dict[tuple[str, int, str], int] = {}
     for r in requirements_df.itertuples():
         requirements_index[(str(r.ds), int(r.hour), str(r.station_key))] = max(
-            int(r.required_labor), 1
+            int(r.required_labor), 0
         )
 
     out = []
@@ -213,18 +205,24 @@ def _build_timeline_json(
             stations = []
             for st in config.STATIONS:
                 key = (ds, hour, st)
-                req = requirements_index.get(key, 1)
+                req = requirements_index.get(key, 0)
                 emps = sorted(actual_index.get(key, []))
                 actual = len(emps)
-                diff = actual - req
-                if actual < req:
-                    status = "under"
-                elif diff == 0:
-                    status = "exact"
-                elif diff <= 2:
-                    status = "over"
+                if req <= 0:
+                    if actual == 0:
+                        status = "exact"
+                    else:
+                        status = "too_much"
                 else:
-                    status = "too_much"
+                    diff = actual - req
+                    if actual < req:
+                        status = "under"
+                    elif diff == 0:
+                        status = "exact"
+                    elif diff <= 2:
+                        status = "over"
+                    else:
+                        status = "too_much"
                 stations.append({
                     "station_key": st,
                     "required": req,

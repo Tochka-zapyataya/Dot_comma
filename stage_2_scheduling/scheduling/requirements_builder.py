@@ -12,10 +12,17 @@ def build_requirements(
     forecast_df: pd.DataFrame,
     reqlabor_df: pd.DataFrame,
 ) -> pd.DataFrame:
+    scale = float(getattr(config, "FORECAST_GUESTS_SCALE", 1.0))
     forecast_lookup = {
-        (str(r.sale_date), int(r.sale_hour)): int(r.guests_count)
+        (str(r.sale_date), int(r.sale_hour)): max(
+            int(round(int(r.guests_count) * scale)), 0
+        )
         for r in forecast_df.itertuples()
     }
+    if scale != 1.0:
+        logger.info(
+            "Applied FORECAST_GUESTS_SCALE=%.3f to forecast guests_count.", scale,
+        )
 
     rows = []
     n_above_max = 0

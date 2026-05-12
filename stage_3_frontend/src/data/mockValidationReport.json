@@ -1,0 +1,16 @@
+{
+  "is_valid": true,
+  "solver_mode": "STRICT",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "total_shifts": 204,
+    "total_work_hours": 1203,
+    "total_errors": 0,
+    "total_warnings": 0,
+    "exact_coverage_slots": 434,
+    "overstaffed_ok_slots": 126,
+    "understaffed_slots": 0,
+    "too_much_overstaffed_slots": 0
+  }
+}
