@@ -72,34 +72,6 @@ export function Hero({ onStart }: HeroProps) {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-2xl bg-brand-orange text-white px-6 sm:px-8 py-5 flex flex-wrap items-center justify-between gap-4"
-          >
-            <div className="flex items-center gap-3">
-              <LogoMark
-                size={40}
-                bgClassName="bg-white/20"
-                fgClassName="text-white"
-              />
-              <div>
-                <div className="font-bold text-lg leading-tight">
-                  Точка запятая · кейс «Вкусно — и точка»
-                </div>
-                <div className="text-white/85 text-sm">
-                  Прогнозирование спроса + оптимизация расписания на CP-SAT
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2 text-sm">
-              <SmallChip>OR-Tools</SmallChip>
-              <SmallChip>React + TS</SmallChip>
-              <SmallChip>Tailwind</SmallChip>
-              <SmallChip>Framer Motion</SmallChip>
-            </div>
-          </motion.div>
         </div>
       </div>
     </div>
@@ -138,13 +110,6 @@ function FeatureChip({
   );
 }
 
-function SmallChip({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/15 border border-white/25 text-white font-medium">
-      {children}
-    </span>
-  );
-}
 
 function DecorArrows() {
   return (

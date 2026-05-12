@@ -19,9 +19,9 @@
       "4": 26,
       "5": 4,
       "6": 7,
-      "7": 45,
-      "8": 33,
-      "9": 35
+      "7": 43,
+      "8": 37,
+      "9": 33
     },
     "shift_priority_distribution": {
       "1": 113,
@@ -37,7 +37,7 @@
     "min_hours": 3,
     "max_hours": 40,
     "avg_hours": 18.1449,
-    "std_hours": 14.4536,
+    "std_hours": 14.4576,
     "exact_coverage_slots": 554,
     "overstaffed_slots": 6,
     "understaffed_slots": 0,
