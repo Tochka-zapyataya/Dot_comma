@@ -6,6 +6,7 @@ from pathlib import Path
 import pandas as pd
 
 from . import config
+from .table_workbook import write_schedule_table_xlsx
 
 
 logger = logging.getLogger(__name__)
@@ -28,6 +29,7 @@ def export_all(
     stale_final_names = (
         "schedule.xlsx",
         "schedule.csv",
+        "table.xlsx",
         "coverage_heatmap.csv",
         "employee_summary.csv",
         "timeline.json",
@@ -64,6 +66,7 @@ def export_all(
         final = sd[["ds", "station_key", "employee_id", "starttime", "finishtime"]].copy()
         final.to_excel(out / "schedule.xlsx", index=False)
         final.to_csv(out / "schedule.csv", index=False)
+        write_schedule_table_xlsx(final, out / "table.xlsx")
 
         coverage_df = _build_coverage_heatmap(sd, requirements_df)
         coverage_df.to_csv(out / "coverage_heatmap.csv", index=False)
@@ -111,16 +114,25 @@ def _build_coverage_heatmap(
     for r in requirements_df.itertuples():
         key = (str(r.ds), int(r.hour), str(r.station_key))
         actual = actual_counts.get(key, 0)
-        req_eff = max(int(r.required_labor), 1)
-        diff = actual - req_eff
-        if actual < req_eff:
-            status = "under"
-        elif diff == 0:
-            status = "exact"
-        elif diff <= 2:
-            status = "over"
+        req_raw = int(r.required_labor)
+        if req_raw <= 0:
+            req_eff = 0
+            if actual == 0:
+                status = "exact"
+            else:
+                status = "too_much"
+            diff = actual - req_eff
         else:
-            status = "too_much"
+            req_eff = req_raw
+            diff = actual - req_eff
+            if actual < req_eff:
+                status = "under"
+            elif diff == 0:
+                status = "exact"
+            elif diff <= 2:
+                status = "over"
+            else:
+                status = "too_much"
         rows.append({
             "ds": r.ds,
             "hour": int(r.hour),
@@ -184,7 +196,7 @@ def _build_timeline_json(
     requirements_index: dict[tuple[str, int, str], int] = {}
     for r in requirements_df.itertuples():
         requirements_index[(str(r.ds), int(r.hour), str(r.station_key))] = max(
-            int(r.required_labor), 1
+            int(r.required_labor), 0
         )
 
     out = []
@@ -193,18 +205,24 @@ def _build_timeline_json(
             stations = []
             for st in config.STATIONS:
                 key = (ds, hour, st)
-                req = requirements_index.get(key, 1)
+                req = requirements_index.get(key, 0)
                 emps = sorted(actual_index.get(key, []))
                 actual = len(emps)
-                diff = actual - req
-                if actual < req:
-                    status = "under"
-                elif diff == 0:
-                    status = "exact"
-                elif diff <= 2:
-                    status = "over"
+                if req <= 0:
+                    if actual == 0:
+                        status = "exact"
+                    else:
+                        status = "too_much"
                 else:
-                    status = "too_much"
+                    diff = actual - req
+                    if actual < req:
+                        status = "under"
+                    elif diff == 0:
+                        status = "exact"
+                    elif diff <= 2:
+                        status = "over"
+                    else:
+                        status = "too_much"
                 stations.append({
                     "station_key": st,
                     "required": req,

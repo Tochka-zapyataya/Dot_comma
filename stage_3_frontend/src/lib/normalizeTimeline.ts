@@ -3,10 +3,13 @@ import {
   STATION_NAMES,
   STATION_ORDER,
   type DaySlot,
+  type EmployeeAtSlot,
   type HourSlot,
   type StationKey,
   type StationSlot,
   type TimelineData,
+  type TimelineMeta,
+  type CoverageStatus,
 } from "./types";
 
 const WEEKDAY_LABEL_RU = [
@@ -29,10 +32,99 @@ function ruWeekday(date: string): string {
   }
 }
 
+/** Плоский массив слотов из stage_2 (date, hour, stations..., employees: number[]). */
+type BackendTimelineRow = {
+  date?: string;
+  hour?: number;
+  stations?: Array<{
+    station_key?: string;
+    required?: number;
+    assigned?: number;
+    employees?: unknown[];
+  }>;
+};
+
+/**
+ * Принимает либо { meta?, days } (как в моках), либо массив часовых слотов из exporter stage_2.
+ */
+export function coerceTimelineInput(raw: unknown): TimelineData {
+  if (
+    raw &&
+    typeof raw === "object" &&
+    !Array.isArray(raw) &&
+    Array.isArray((raw as TimelineData).days) &&
+    (raw as TimelineData).days!.length > 0
+  ) {
+    return raw as TimelineData;
+  }
+  if (!Array.isArray(raw) || raw.length === 0) {
+    return { meta: {}, days: [] };
+  }
+
+  const byDate = new Map<string, HourSlot[]>();
+
+  for (const row of raw as BackendTimelineRow[]) {
+    const date = row?.date;
+    const hour = row?.hour;
+    if (!date || typeof hour !== "number") continue;
+
+    const stations: StationSlot[] = (row.stations ?? []).map((st) => {
+      const key = String(st.station_key ?? "");
+      const empsRaw = st.employees ?? [];
+      const employees: EmployeeAtSlot[] = empsRaw.map((e) => {
+        if (typeof e === "number") {
+          return {
+            employee_id: e,
+            shift_start: hour,
+            shift_end: hour + 1,
+            shift_duration: 1,
+            station_key: key,
+          };
+        }
+        return e as EmployeeAtSlot;
+      });
+      return {
+        station_key: key,
+        required: Number(st.required ?? 0),
+        assigned: Number(st.assigned ?? 0),
+        employees,
+      };
+    });
+
+    const slot: HourSlot = { hour, stations };
+    const list = byDate.get(date) ?? [];
+    list.push(slot);
+    byDate.set(date, list);
+  }
+
+  const dates = [...byDate.keys()].sort();
+  const days: DaySlot[] = dates.map((d) => ({
+    date: d,
+    hours: (byDate.get(d) ?? []).sort((a, b) => a.hour - b.hour),
+  }));
+
+  const meta: TimelineMeta = {
+    period_start: dates[0],
+    period_end: dates[dates.length - 1],
+  };
+  return { meta, days };
+}
+
+const VALID_COVERAGE: ReadonlySet<string> = new Set([
+  "exact",
+  "overstaffed_ok",
+  "understaffed",
+  "overstaffed_bad",
+  "no_data",
+]);
+
 function normalizeStation(st: StationSlot): StationSlot {
   const required = Math.max(0, Number(st.required ?? 0));
   const assigned = Math.max(0, Number(st.assigned ?? 0));
-  const status = st.status ?? computeCoverageStatus(required, assigned);
+  const incoming = st.status != null ? String(st.status) : "";
+  const status: CoverageStatus = VALID_COVERAGE.has(incoming)
+    ? (incoming as CoverageStatus)
+    : computeCoverageStatus(required, assigned);
   const warnings =
     st.warnings && st.warnings.length > 0
       ? st.warnings

@@ -18,6 +18,8 @@ import { EmployeeAvatar } from "./EmployeeAvatar";
 interface StationZoneProps {
   station: StationSlot;
   big?: boolean;
+  /** Равномерная плитка в сетке «Все станции»: одна высота/ширина с соседями. */
+  gridTile?: boolean;
   onEmployeeClick: (e: EmployeeAtSlot) => void;
   highlightedEmployeeId?: number | null;
 }
@@ -33,6 +35,7 @@ const ICONS: Record<StationKey, React.ReactNode> = {
 export function StationZone({
   station,
   big = false,
+  gridTile = false,
   onEmployeeClick,
   highlightedEmployeeId,
 }: StationZoneProps) {
@@ -49,8 +52,12 @@ export function StationZone({
   return (
     <motion.div
       layout
-      className="card relative overflow-hidden flex flex-col"
-      style={{ minHeight: big ? 360 : 200 }}
+      className={`card relative flex flex-col rounded-2xl border border-graphite-100 ${
+        gridTile ? "h-full min-h-[260px] w-full" : ""
+      }`}
+      style={
+        gridTile ? undefined : { minHeight: big ? 360 : 200 }
+      }
     >
       <div
         className="absolute inset-x-0 top-0 h-1.5"
@@ -103,8 +110,12 @@ export function StationZone({
       </div>
 
       <div
-        className={`px-3 pb-4 flex flex-wrap content-start gap-3 overflow-y-auto scrollbar-thin ${
-          big ? "max-h-[260px]" : "max-h-[120px]"
+        className={`px-3 pt-2 pb-4 flex flex-wrap content-start gap-3 overflow-y-auto overflow-x-visible scrollbar-thin ${
+          gridTile
+            ? "min-h-0 flex-1"
+            : big
+              ? "max-h-[300px]"
+              : "max-h-[192px]"
         }`}
       >
         <AnimatePresence initial={false}>
@@ -112,6 +123,7 @@ export function StationZone({
             <motion.div
               key={`${station.station_key}-${emp.employee_id}-${emp.shift_start}`}
               layout
+              className="overflow-visible pt-1"
               initial={{ opacity: 0, y: 8, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.9 }}

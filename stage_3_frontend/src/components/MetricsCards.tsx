@@ -12,6 +12,44 @@ interface MetricsCardsProps {
   validation: ValidationReport;
 }
 
+function firstDefinedNumber(
+  x: Record<string, unknown>,
+  keys: string[],
+): number | undefined {
+  for (const k of keys) {
+    const v = x[k];
+    if (typeof v === "number" && Number.isFinite(v)) return v;
+    if (typeof v === "string" && v.trim() !== "") {
+      const n = Number(v);
+      if (Number.isFinite(n)) return n;
+    }
+  }
+  return undefined;
+}
+
+/** Часы и слоты: несколько имён ключей (stage_2, моки, возможные camelCase). */
+function totalWorkHours(m: ValidationReport["metrics"]): number | undefined {
+  const x = m as Record<string, unknown>;
+  return firstDefinedNumber(x, [
+    "total_work_hours",
+    "total_hours",
+    "totalHours",
+    "total_workHours",
+  ]);
+}
+
+function overstaffedOkSlots(
+  m: ValidationReport["metrics"],
+): number | undefined {
+  const x = m as Record<string, unknown>;
+  return firstDefinedNumber(x, [
+    "overstaffed_ok_slots",
+    "overstaffed_slots",
+    "overstaffedOkSlots",
+    "overstaffedSlots",
+  ]);
+}
+
 export function MetricsCards({ validation }: MetricsCardsProps) {
   const m = validation.metrics ?? {};
   const isValid = validation.is_valid;
@@ -34,7 +72,7 @@ export function MetricsCards({ validation }: MetricsCardsProps) {
       <Card
         icon={<Clock3 className="h-4 w-4" />}
         label="Рабочих часов"
-        value={fmt(m.total_work_hours)}
+        value={fmt(totalWorkHours(m))}
         tone="neutral"
       />
       <Card
@@ -46,7 +84,7 @@ export function MetricsCards({ validation }: MetricsCardsProps) {
       <Card
         icon={<Activity className="h-4 w-4" />}
         label="Допустимый запас"
-        value={fmt(m.overstaffed_ok_slots)}
+        value={fmt(overstaffedOkSlots(m))}
         tone="orange"
       />
       <Card
@@ -71,7 +109,14 @@ export function MetricsCards({ validation }: MetricsCardsProps) {
 
 function fmt(v: unknown): string {
   if (v == null) return "—";
-  if (typeof v === "number") return new Intl.NumberFormat("ru-RU").format(v);
+  if (typeof v === "number") {
+    if (!Number.isFinite(v)) return "—";
+    return new Intl.NumberFormat("ru-RU").format(v);
+  }
+  if (typeof v === "string" && v.trim() !== "") {
+    const n = Number(v);
+    if (Number.isFinite(n)) return new Intl.NumberFormat("ru-RU").format(n);
+  }
   return String(v);
 }
 

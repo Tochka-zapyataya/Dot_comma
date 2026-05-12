@@ -9,12 +9,14 @@ import {
 } from "../lib/types";
 import { findEmployeeShift, getEmployeeSummary } from "../lib/employee";
 import { formatHour, formatRuDate } from "../lib/normalizeTimeline";
+import type { StaffLimitsMap } from "../lib/staffLimits";
 
 interface EmployeeDetailsPanelProps {
   employee: EmployeeAtSlot | null;
   date: string;
   hour: number;
   summary: EmployeeSummaryFile;
+  staffLimits?: StaffLimitsMap | null;
   onClose: () => void;
 }
 
@@ -23,6 +25,7 @@ export function EmployeeDetailsPanel({
   date,
   hour,
   summary,
+  staffLimits,
   onClose,
 }: EmployeeDetailsPanelProps) {
   return (
@@ -48,6 +51,7 @@ export function EmployeeDetailsPanel({
               date={date}
               hour={hour}
               summary={summary}
+              staffLimits={staffLimits}
               onClose={onClose}
             />
           </motion.aside>
@@ -62,12 +66,14 @@ function Body({
   date,
   hour,
   summary,
+  staffLimits,
   onClose,
 }: {
   employee: EmployeeAtSlot;
   date: string;
   hour: number;
   summary: EmployeeSummaryFile;
+  staffLimits?: StaffLimitsMap | null;
   onClose: () => void;
 }) {
   const empSummary = getEmployeeSummary(summary, employee.employee_id);
@@ -77,6 +83,13 @@ function Body({
     date,
     hour,
   );
+  const lim = staffLimits?.[employee.employee_id] ?? null;
+  const usedH = empSummary?.total_hours ?? null;
+  const remainH =
+    lim != null && usedH != null ? lim.worktime_limit - usedH : null;
+  const nShifts = empSummary?.shifts.length ?? 0;
+  const remainShifts =
+    lim != null ? lim.shift_limit - nShifts : null;
   const stName =
     employee.station_name ??
     STATION_NAMES[employee.station_key as StationKey] ??
@@ -175,6 +188,55 @@ function Body({
           }
         />
       </div>
+
+      {staffLimits && Object.keys(staffLimits).length > 0 ? (
+        lim ? (
+          <div className="px-5 pb-3 border-t border-graphite-100">
+            <div className="text-[11px] uppercase tracking-wide font-semibold text-graphite-400 mb-2">
+              Лимиты (staff_limits)
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <Stat label="Лимит часов / нед." value={lim.worktime_limit} />
+              <Stat
+                label="Осталось часов"
+                value={
+                  remainH == null
+                    ? "—"
+                    : remainH >= 0
+                      ? remainH
+                      : `${remainH} (сверх)`
+                }
+              />
+              <Stat label="Лимит смен / нед." value={lim.shift_limit} />
+              <Stat
+                label="Осталось смен"
+                value={
+                  remainShifts == null
+                    ? "—"
+                    : remainShifts >= 0
+                      ? remainShifts
+                      : `${remainShifts} (сверх)`
+                }
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="px-5 pb-3 border-t border-graphite-100">
+            <div className="rounded-xl border border-graphite-200 bg-graphite-50 px-3 py-2 text-xs text-graphite-600">
+              В <code className="text-graphite-800">staff_limits.csv</code> нет
+              строки для сотрудника #{employee.employee_id}.
+            </div>
+          </div>
+        )
+      ) : (
+        <div className="px-5 pb-3 border-t border-graphite-100">
+          <div className="rounded-xl border border-dashed border-graphite-200 bg-graphite-50/80 px-3 py-2 text-xs text-graphite-500">
+            Положите <code className="text-graphite-700">staff_limits.csv</code>{" "}
+            в <code className="text-graphite-700">public/data</code> — тогда
+            отобразятся лимит и остаток часов/смен.
+          </div>
+        </div>
+      )}
 
       <div className="px-5 pb-5">
         <div className="text-[11px] uppercase tracking-wide font-semibold text-graphite-400 mb-2 mt-2 flex items-center gap-2">

@@ -109,7 +109,7 @@ export function Hero({ onStart }: HeroProps) {
 function BrandTopBar() {
   return (
     <header className="bg-white border-b border-graphite-100">
-      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 py-4 flex items-center justify-between gap-4">
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 py-4 flex items-center gap-4">
         <div className="flex items-center gap-3">
           <LogoMark size={36} />
           <div className="flex items-baseline gap-2">
@@ -118,17 +118,6 @@ function BrandTopBar() {
             </span>
           </div>
         </div>
-        <nav className="hidden md:flex items-center gap-6 text-sm text-graphite-700">
-          <span className="hover:text-graphite-900 cursor-default">
-            Алгоритм
-          </span>
-          <span className="hover:text-graphite-900 cursor-default">
-            Метрики
-          </span>
-          <span className="hover:text-graphite-900 cursor-default">
-            Команда
-          </span>
-        </nav>
       </div>
     </header>
   );

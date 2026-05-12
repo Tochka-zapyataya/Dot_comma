@@ -69,9 +69,13 @@ export function RestaurantMap({
       </div>
 
       {selectedStation === "ALL" ? (
-        <div className="grid grid-cols-12 gap-4">
-          <motion.div layout className="col-span-12 lg:col-span-3">
+        <div className="grid grid-cols-12 gap-4 items-stretch">
+          <motion.div
+            layout
+            className="col-span-12 lg:col-span-6 flex min-h-0 min-w-0 w-full"
+          >
             <StationZone
+              gridTile
               station={stationFor("K")}
               onEmployeeClick={onEmployeeClick}
               highlightedEmployeeId={highlightedEmployeeId}
@@ -79,28 +83,43 @@ export function RestaurantMap({
           </motion.div>
           <motion.div
             layout
-            className="col-span-12 lg:col-span-6 grid grid-cols-1 lg:grid-cols-2 gap-4"
+            className="col-span-12 lg:col-span-6 flex min-h-0 min-w-0 w-full"
           >
-            <div className="lg:col-span-2">
-              <StationZone
-                station={stationFor("C")}
-                onEmployeeClick={onEmployeeClick}
-                highlightedEmployeeId={highlightedEmployeeId}
-              />
-            </div>
             <StationZone
+              gridTile
+              station={stationFor("C")}
+              onEmployeeClick={onEmployeeClick}
+              highlightedEmployeeId={highlightedEmployeeId}
+            />
+          </motion.div>
+          <motion.div
+            layout
+            className="col-span-12 sm:col-span-6 lg:col-span-4 flex min-h-0 min-w-0 w-full"
+          >
+            <StationZone
+              gridTile
               station={stationFor("BVR")}
               onEmployeeClick={onEmployeeClick}
               highlightedEmployeeId={highlightedEmployeeId}
             />
+          </motion.div>
+          <motion.div
+            layout
+            className="col-span-12 sm:col-span-6 lg:col-span-4 flex min-h-0 min-w-0 w-full"
+          >
             <StationZone
+              gridTile
               station={stationFor("FF")}
               onEmployeeClick={onEmployeeClick}
               highlightedEmployeeId={highlightedEmployeeId}
             />
           </motion.div>
-          <motion.div layout className="col-span-12 lg:col-span-3">
+          <motion.div
+            layout
+            className="col-span-12 sm:col-span-6 lg:col-span-4 flex min-h-0 min-w-0 w-full"
+          >
             <StationZone
+              gridTile
               station={stationFor("TS")}
               onEmployeeClick={onEmployeeClick}
               highlightedEmployeeId={highlightedEmployeeId}

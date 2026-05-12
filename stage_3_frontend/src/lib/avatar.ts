@@ -20,46 +20,34 @@ const HAIR_COLORS = [
   "#5c3a8c",
 ];
 
-const SHIRT_COLORS = [
-  "#F26522",
-  "#D9551A",
-  "#FF8B4D",
-  "#0F3D2A",
-  "#0E8C3A",
-  "#1A5638",
-  "#0a6b2c",
-  "#FFE7D6",
-];
+/** Зелёная форма в фирменных тонах сети. */
+export const BRAND_UNIFORM = {
+  green: "#004A32",
+  greenDeep: "#003428",
+  /** Светлее основы — воротник / козырёк. */
+  trim: "#0d6b4c",
+  black: "#1a1a1a",
+} as const;
 
-const ACCESSORY_PROBABILITY = 0.45;
-const ACCESSORIES = ["cap", "glasses", "earring", "none"] as const;
-type Accessory = (typeof ACCESSORIES)[number];
+/** Знак на форме: кружок + «фри» (как в официальном логотипе). */
+export const BRAND_LOGO = {
+  patty: "#f04e23",
+  fries: "#ff8200",
+} as const;
 
 export interface AvatarLook {
   skin: string;
   hair: string;
-  shirt: string;
-  accessory: Accessory;
   hairStyle: 0 | 1 | 2;
 }
 
 export function avatarLook(employeeId: number | string): AvatarLook {
   const h1 = hash32(`skin:${employeeId}`);
-  const h2 = hash32(`hair:${employeeId}`);
-  const h3 = hash32(`shirt:${employeeId}`);
-  const h4 = hash32(`acc:${employeeId}`);
   const h5 = hash32(`style:${employeeId}`);
-
-  const accessory: Accessory =
-    (h4 % 1000) / 1000 < ACCESSORY_PROBABILITY
-      ? ACCESSORIES[h4 % (ACCESSORIES.length - 1)]
-      : "none";
 
   return {
     skin: SKIN_TONES[h1 % SKIN_TONES.length],
-    hair: HAIR_COLORS[h2 % HAIR_COLORS.length],
-    shirt: SHIRT_COLORS[h3 % SHIRT_COLORS.length],
-    accessory,
+    hair: HAIR_COLORS[hash32(`hair:${employeeId}`) % HAIR_COLORS.length],
     hairStyle: (h5 % 3) as 0 | 1 | 2,
   };
 }

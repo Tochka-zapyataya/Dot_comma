@@ -2,7 +2,9 @@ import mockTimeline from "../data/mockTimeline.json";
 import mockValidation from "../data/mockValidationReport.json";
 import mockEmployeeSummary from "../data/mockEmployeeSummary.json";
 import { buildEmployeeSummaryFromTimeline } from "./employee";
-import { normalizeTimeline } from "./normalizeTimeline";
+import { coerceTimelineInput, normalizeTimeline } from "./normalizeTimeline";
+import { normalizeValidationReport } from "./normalizeValidation";
+import { parseStaffLimitsCsv, type StaffLimitsMap } from "./staffLimits";
 import type {
   EmployeeSummaryFile,
   TimelineData,
@@ -12,15 +14,19 @@ import type {
 const PUBLIC_TIMELINE = "/data/timeline.json";
 const PUBLIC_VALIDATION = "/data/validation_report.json";
 const PUBLIC_EMPLOYEE_SUMMARY = "/data/employee_summary.json";
+const PUBLIC_STAFF_LIMITS = "/data/staff_limits.csv";
 
 export interface DataBundle {
   timeline: TimelineData;
   validation: ValidationReport;
   employeeSummary: EmployeeSummaryFile;
+  /** Лимиты из staff_limits.csv (stage_2 / data_tech_and_point), если положить в public/data */
+  staffLimits: StaffLimitsMap | null;
   fileAvailability: {
     schedule_xlsx: boolean;
     schedule_csv: boolean;
     validation_report: boolean;
+    staff_limits: boolean;
   };
   isMock: boolean;
 }
@@ -56,22 +62,52 @@ async function tryHead(url: string): Promise<boolean> {
   }
 }
 
+async function tryFetchText(url: string): Promise<string | null> {
+  try {
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) return null;
+    const ct = res.headers.get("content-type") ?? "";
+    if (ct.includes("text/html")) return null;
+    const txt = await res.text();
+    if (txt.trim().startsWith("<")) return null;
+    return txt;
+  } catch {
+    return null;
+  }
+}
+
 export async function loadData(): Promise<DataBundle> {
-  const [tl, vr, es, hasXlsx, hasCsv, hasVRFile] = await Promise.all([
-    tryFetchJson<TimelineData>(PUBLIC_TIMELINE),
+  const [
+    rawTl,
+    vr,
+    es,
+    slText,
+    hasXlsx,
+    hasCsv,
+    hasVRFile,
+    hasStaffLim,
+  ] = await Promise.all([
+    tryFetchJson<unknown>(PUBLIC_TIMELINE),
     tryFetchJson<ValidationReport>(PUBLIC_VALIDATION),
     tryFetchJson<EmployeeSummaryFile>(PUBLIC_EMPLOYEE_SUMMARY),
+    tryFetchText(PUBLIC_STAFF_LIMITS),
     tryHead("/data/schedule.xlsx"),
     tryHead("/data/schedule.csv"),
     tryHead(PUBLIC_VALIDATION),
+    tryHead(PUBLIC_STAFF_LIMITS),
   ]);
 
-  const isMock = tl == null;
-  const rawTimeline = tl ?? (mockTimeline as unknown as TimelineData);
-  const timeline = normalizeTimeline(rawTimeline);
+  const coerced = rawTl != null ? coerceTimelineInput(rawTl) : null;
+  const hasTl = coerced != null && (coerced.days?.length ?? 0) > 0;
+  const isMock = !hasTl;
+  const baseTimeline = hasTl
+    ? coerced!
+    : (mockTimeline as unknown as TimelineData);
+  const timeline = normalizeTimeline(baseTimeline);
 
-  const validation =
+  const validationRaw =
     vr ?? (mockValidation as unknown as ValidationReport);
+  const validation = normalizeValidationReport(validationRaw);
 
   const employeeSummary: EmployeeSummaryFile =
     es ??
@@ -79,14 +115,23 @@ export async function loadData(): Promise<DataBundle> {
       ? (mockEmployeeSummary as unknown as EmployeeSummaryFile)
       : buildEmployeeSummaryFromTimeline(timeline));
 
+  const staffLimitsParsed =
+    slText != null ? parseStaffLimitsCsv(slText) : null;
+  const staffLimits: StaffLimitsMap | null =
+    staffLimitsParsed != null && Object.keys(staffLimitsParsed).length > 0
+      ? staffLimitsParsed
+      : null;
+
   return {
     timeline,
     validation,
     employeeSummary,
+    staffLimits,
     fileAvailability: {
       schedule_xlsx: hasXlsx,
       schedule_csv: hasCsv,
       validation_report: hasVRFile,
+      staff_limits: hasStaffLim,
     },
     isMock,
   };

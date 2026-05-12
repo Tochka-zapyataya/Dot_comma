@@ -69,10 +69,14 @@ export interface TimelineData {
 export interface ValidationMetrics {
   total_shifts?: number;
   total_work_hours?: number;
+  /** Суммарные назначенные часы по графику (ключ из stage_2). */
+  total_hours?: number;
   total_errors?: number;
   total_warnings?: number;
   exact_coverage_slots?: number;
   overstaffed_ok_slots?: number;
+  /** Слоты с допустимым переполнением (+1…+2), как в stage_2. */
+  overstaffed_slots?: number;
   understaffed_slots?: number;
   too_much_overstaffed_slots?: number;
   [key: string]: unknown;

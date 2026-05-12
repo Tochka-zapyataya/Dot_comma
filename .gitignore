@@ -26,8 +26,13 @@ Thumbs.db
 
 .ipynb_checkpoints/
 
+stage_1_forecast/.venv/
+stage_1_forecast/train.csv
+
 stage_2_scheduling/output/*_debug.csv
 
 .env
 .env.local
 *.pem
+
+*.tsbuildinfo

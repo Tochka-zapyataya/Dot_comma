@@ -39,55 +39,65 @@ def main() -> int:
     logger.info("[3/5] Building candidates ...")
     candidates_df = build_candidates(data)
 
-    from .cpsat_solver import (
-        candidate_ids_from_schedule,
-        solve_cpsat_feasibility,
-        solve_cpsat_optimize,
-    )
+    from .cpsat_solver import solve_cpsat_two_phase
 
-    logger.info("[4/5] CP-SAT solve ...")
-    feas_schedule, feas_info = solve_cpsat_feasibility(
+    budget = float(config.MAX_TIME_SECONDS)
+
+    logger.info("[4/5] CP-SAT two-phase solve (shared model + split time budget) ...")
+    feas_schedule, feas_info, opt_schedule, opt_info = solve_cpsat_two_phase(
         requirements_df,
         candidates_df,
         data,
         enforce_all_employees_used=True,
-        max_time_seconds=config.MAX_TIME_SECONDS,
+        total_time_seconds=budget,
     )
+    feas_info["relaxed_employee_retry"] = False
+
+    emps_no_cand = candidates_df.attrs.get("employees_without_candidates", [])
+    if emps_no_cand:
+        logger.warning(
+            "Employees without shift candidates: %s",
+            emps_no_cand,
+        )
+
+    if feas_info.get("status") not in ("OPTIMAL", "FEASIBLE"):
+        if config.ALLOW_RELAX_UNUSED_EMPLOYEES_RETRY:
+            logger.warning(
+                "Strict feasibility failed (%s). Retrying with relax "
+                "enforce_all_employees_used=False (+ soft penalty for unused).",
+                feas_info.get("status"),
+            )
+            feas_schedule, feas_info, opt_schedule, opt_info = solve_cpsat_two_phase(
+                requirements_df,
+                candidates_df,
+                data,
+                enforce_all_employees_used=False,
+                total_time_seconds=budget,
+            )
+            feas_info["relaxed_employee_retry"] = True
+        else:
+            logger.error(
+                "Strict feasibility failed (%s). Not retrying: "
+                "config.ALLOW_RELAX_UNUSED_EMPLOYEES_RETRY is False "
+                "(ТЗ / критерии: все сотрудники в расписании).",
+                feas_info.get("status"),
+            )
+            feas_info["relaxed_employee_retry"] = False
+
     logger.info(
-        "Feasibility | status=%s | shifts=%s | %.2fs",
+        "Feasibility | status=%s | shifts=%s | %.2fs | relaxed_retry=%s",
         feas_info.get("status"),
         feas_info.get("final_num_shifts", "—"),
         feas_info.get("wall_time_seconds", 0),
+        feas_info.get("relaxed_employee_retry", False),
     )
-
-    opt_schedule = None
-    opt_info: dict = {
-        "status": "SKIPPED_NO_STRICT_FEASIBILITY",
-        "phase": "optimize",
-        "wall_time_seconds": 0.0,
-    }
-    if feas_info.get("status") in ("OPTIMAL", "FEASIBLE"):
-        hints = candidate_ids_from_schedule(feas_schedule, candidates_df)
-        opt_schedule, opt_info = solve_cpsat_optimize(
-            requirements_df,
-            candidates_df,
-            data,
-            enforce_all_employees_used=True,
-            max_time_seconds=config.MAX_TIME_SECONDS,
-            hint_selected_ids=hints,
-        )
-        logger.info(
-            "Optimize | status=%s | obj=%s | shifts=%s | %.2fs",
-            opt_info.get("status"),
-            opt_info.get("objective_value"),
-            opt_info.get("final_num_shifts", "—"),
-            opt_info.get("wall_time_seconds", 0),
-        )
-    else:
-        logger.warning(
-            "Optimize skipped: feasibility status=%s",
-            feas_info.get("status"),
-        )
+    logger.info(
+        "Optimize | status=%s | obj=%s | shifts=%s | %.2fs",
+        opt_info.get("status"),
+        opt_info.get("objective_value"),
+        opt_info.get("final_num_shifts", "—"),
+        opt_info.get("wall_time_seconds", 0),
+    )
 
     if opt_schedule is not None and not opt_schedule.empty:
         final_schedule = opt_schedule
@@ -108,13 +118,14 @@ def main() -> int:
     metrics = validation["metrics"]
     metrics["solver_mode"] = solver_mode
     metrics["solver_proved_optimal"] = bool(
-        solver_mode == "cpsat_optimize" and opt_info.get("status") == "OPTIMAL"
+        solver_mode == "cpsat_optimize" and opt_info.get("status") == "OPTIMAL",
     )
 
     diag = {
         "solver_mode": solver_mode,
         "feasibility": feas_info,
         "optimize": opt_info,
+        "employees_without_candidates": emps_no_cand,
     }
 
     export_all(

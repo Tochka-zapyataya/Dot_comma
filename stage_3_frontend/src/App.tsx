@@ -4,6 +4,7 @@ import { Hero } from "./components/Hero";
 import { LogoMark } from "./components/LogoMark";
 import { TimeControls } from "./components/TimeControls";
 import { RestaurantMap } from "./components/RestaurantMap";
+import { RestaurantTopDown } from "./components/RestaurantTopDown";
 import { CurrentHourSummary } from "./components/CurrentHourSummary";
 import { MetricsCards } from "./components/MetricsCards";
 import { CoverageHeatmap } from "./components/CoverageHeatmap";
@@ -32,6 +33,7 @@ export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [selectedEmployee, setSelectedEmployee] =
     useState<EmployeeAtSlot | null>(null);
+  const [viewMode, setViewMode] = useState<"zones" | "topdown">("zones");
 
   const intervalRef = useRef<number | null>(null);
 
@@ -207,24 +209,73 @@ export default function App() {
           onNextHour={goNext}
         />
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`${dayIndex}-${hour}-${selectedStation}`}
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.18 }}
+        <div className="flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={() => setViewMode("zones")}
+            className={`chip-tab ${
+              viewMode === "zones"
+                ? "bg-brand-forest text-white border-brand-forest shadow"
+                : "bg-white text-graphite-700 border-graphite-200 hover:bg-graphite-50"
+            }`}
           >
-            <RestaurantMap
-              hour={hourSlot}
-              selectedStation={selectedStation}
-              onSelectStation={(s) => setSelectedStation(s)}
-              onEmployeeClick={(e) => setSelectedEmployee(e)}
-              highlightedEmployeeId={
-                selectedEmployee?.employee_id ?? null
-              }
-            />
-          </motion.div>
+            По станциям
+          </button>
+          <button
+            type="button"
+            onClick={() => setViewMode("topdown")}
+            className={`chip-tab ${
+              viewMode === "topdown"
+                ? "bg-brand-forest text-white border-brand-forest shadow"
+                : "bg-white text-graphite-700 border-graphite-200 hover:bg-graphite-50"
+            }`}
+          >
+            План зала
+          </button>
+        </div>
+
+        <AnimatePresence mode="wait">
+          {viewMode === "zones" && (
+            <motion.div
+              key={`zones-${dayIndex}-${hour}-${selectedStation}`}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.18 }}
+            >
+              <RestaurantMap
+                hour={hourSlot}
+                selectedStation={selectedStation}
+                onSelectStation={(s) => setSelectedStation(s)}
+                onEmployeeClick={(e) => setSelectedEmployee(e)}
+                highlightedEmployeeId={
+                  selectedEmployee?.employee_id ?? null
+                }
+              />
+            </motion.div>
+          )}
+          {viewMode === "topdown" && (
+            <motion.div
+              key={`topdown-${dayIndex}`}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.18 }}
+            >
+              <RestaurantTopDown
+                day={day ?? null}
+                externalHour={hour}
+                onChangeHour={(h) => {
+                  stopPlay();
+                  setHour(h);
+                }}
+                onEmployeeClick={(e) => setSelectedEmployee(e)}
+                highlightedEmployeeId={
+                  selectedEmployee?.employee_id ?? null
+                }
+              />
+            </motion.div>
+          )}
         </AnimatePresence>
 
         <MetricsCards validation={data.validation} />
@@ -236,7 +287,7 @@ export default function App() {
               onEmployeeClick={(e) => setSelectedEmployee(e)}
             />
           </div>
-          <div className="col-span-12 xl:col-span-4 space-y-4">
+          <div className="col-span-12 xl:col-span-4 space-y-4 min-w-0">
             <Legend />
             <DownloadPanel availability={data.fileAvailability} />
           </div>
@@ -261,6 +312,7 @@ export default function App() {
         date={day?.date ?? ""}
         hour={hour}
         summary={data.employeeSummary}
+        staffLimits={data.staffLimits}
         onClose={() => setSelectedEmployee(null)}
       />
     </div>

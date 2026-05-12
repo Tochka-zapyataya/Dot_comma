@@ -1,5 +1,10 @@
 import { motion } from "framer-motion";
-import { avatarLook } from "../lib/avatar";
+import { avatarLook, BRAND_LOGO, BRAND_UNIFORM } from "../lib/avatar";
+import { UniformBrandMark } from "./UniformBrandMark";
+
+/** Тот же viewBox и фигура, что у ChibiPerson на плане зала — пропорции совпадают при любом size. */
+const FIG_VB_W = 80;
+const FIG_VB_H = 110;
 
 interface EmployeeAvatarProps {
   employeeId: number;
@@ -19,7 +24,8 @@ export function EmployeeAvatar({
   badgeColor = "#F26522",
 }: EmployeeAvatarProps) {
   const look = avatarLook(employeeId);
-  const bodyHeight = size * 0.55;
+  const svgHeight = (size * FIG_VB_H) / FIG_VB_W;
+  const padBottom = showId ? 22 : 6;
 
   return (
     <motion.button
@@ -34,95 +40,153 @@ export function EmployeeAvatar({
       aria-label={`Сотрудник ${employeeId}`}
     >
       <div
-        className={`relative rounded-2xl transition ${
+        className={`relative rounded-2xl transition overflow-visible ${
           highlighted
             ? "ring-2 ring-brand-orange ring-offset-2 ring-offset-white"
             : ""
         }`}
-        style={{ width: size, height: size + 8 }}
+        style={{ width: size, height: svgHeight + padBottom }}
       >
         <svg
-          viewBox="0 0 64 72"
+          viewBox={`0 0 ${FIG_VB_W} ${FIG_VB_H}`}
           width={size}
-          height={size + 8}
-          className="block"
+          height={svgHeight}
+          className="block overflow-visible"
         >
           <defs>
-            <radialGradient id={`shadow-${employeeId}`} cx="50%" cy="50%" r="50%">
+            <radialGradient
+              id={`shadow-av-${employeeId}`}
+              cx="50%"
+              cy="50%"
+              r="50%"
+            >
               <stop offset="0%" stopColor="rgba(20,24,32,0.18)" />
               <stop offset="100%" stopColor="rgba(20,24,32,0)" />
             </radialGradient>
           </defs>
           <ellipse
-            cx="32"
-            cy="68"
-            rx="18"
-            ry="3"
-            fill={`url(#shadow-${employeeId})`}
+            cx="40"
+            cy="104"
+            rx="22"
+            ry="4"
+            fill={`url(#shadow-av-${employeeId})`}
           />
+
           <rect
-            x={32 - 14}
-            y={72 - bodyHeight}
-            width="28"
-            height={bodyHeight}
-            rx="10"
-            fill={look.shirt}
+            x="24"
+            y="94"
+            width="32"
+            height="13"
+            rx="5"
+            fill={BRAND_UNIFORM.black}
           />
           <rect
             x="22"
-            y={72 - bodyHeight + 4}
-            width="20"
+            y="62"
+            width="36"
+            height="34"
+            rx="10"
+            fill={BRAND_UNIFORM.green}
+            stroke={BRAND_UNIFORM.greenDeep}
+            strokeWidth="0.8"
+          />
+          <rect
+            x="28"
+            y="62"
+            width="24"
+            height="7"
+            rx="3"
+            fill={BRAND_UNIFORM.trim}
+          />
+          <rect
+            x="22"
+            y="68"
+            width="36"
             height="6"
             rx="3"
-            fill="rgba(255,255,255,0.18)"
+            fill="rgba(255,255,255,0.12)"
           />
-          <circle cx="32" cy="22" r="14" fill={look.skin} />
+          <g transform="translate(40, 76)">
+            <UniformBrandMark scale={1.22} />
+          </g>
+          <rect
+            x="14"
+            y="68"
+            width="10"
+            height="22"
+            rx="5"
+            fill={BRAND_UNIFORM.green}
+            stroke={BRAND_UNIFORM.greenDeep}
+            strokeWidth="0.6"
+          />
+          <rect
+            x="56"
+            y="68"
+            width="10"
+            height="22"
+            rx="5"
+            fill={BRAND_UNIFORM.green}
+            stroke={BRAND_UNIFORM.greenDeep}
+            strokeWidth="0.6"
+          />
+          <circle cx="19" cy="92" r="6" fill={look.skin} />
+          <circle cx="61" cy="92" r="6" fill={look.skin} />
+
+          <ellipse cx="40" cy="36" rx="26" ry="26" fill={look.skin} />
+
           {look.hairStyle === 0 && (
             <path
-              d="M18 22 C18 14, 24 8, 32 8 C40 8, 46 14, 46 22 L46 16 C46 14, 44 13, 42 13 L22 13 C20 13, 18 14, 18 16 Z"
+              d="M16 36 C16 18, 26 8, 40 8 C54 8, 64 18, 64 36 L64 26 C64 22, 60 20, 56 20 L24 20 C20 20, 16 22, 16 26 Z"
               fill={look.hair}
             />
           )}
           {look.hairStyle === 1 && (
             <path
-              d="M19 24 C19 14, 25 8, 32 8 C39 8, 45 14, 45 24 C42 18, 39 16, 32 16 C25 16, 22 18, 19 24 Z"
+              d="M16 38 C16 18, 26 8, 40 8 C54 8, 64 18, 64 38 C58 28, 52 24, 40 24 C28 24, 22 28, 16 38 Z"
               fill={look.hair}
             />
           )}
           {look.hairStyle === 2 && (
             <path
-              d="M20 22 C20 14, 26 9, 32 9 C38 9, 44 14, 44 22 L42 19 L40 22 L38 19 L36 22 L34 19 L32 22 L30 19 L28 22 L26 19 L24 22 L22 19 Z"
+              d="M18 36 C18 18, 28 10, 40 10 C52 10, 62 18, 62 36 L58 30 L54 36 L50 30 L46 36 L42 30 L38 36 L34 30 L30 36 L26 30 L22 36 Z"
               fill={look.hair}
             />
           )}
-          <circle cx="27" cy="23" r="1.4" fill="#1f242c" />
-          <circle cx="37" cy="23" r="1.4" fill="#1f242c" />
+
+          <ellipse cx="32" cy="38" rx="2" ry="2.6" fill="#1f242c" />
+          <ellipse cx="48" cy="38" rx="2" ry="2.6" fill="#1f242c" />
           <path
-            d="M28 28 Q32 30 36 28"
+            d="M34 46 Q40 50 46 46"
             stroke="#1f242c"
-            strokeWidth="1.2"
+            strokeWidth="1.6"
             strokeLinecap="round"
             fill="none"
           />
-          {look.accessory === "cap" && (
+
+          <g>
             <path
-              d="M16 16 L48 16 L46 12 L18 12 Z M14 17 L50 17 L50 19 L14 19 Z"
-              fill="#F26522"
+              d="M14 21.85 C14 7.1 26 2.55 40 2.2 C54 2.55 66 7.1 66 21.85 Z"
+              fill={BRAND_UNIFORM.green}
+              stroke={BRAND_UNIFORM.greenDeep}
+              strokeWidth="0.75"
             />
-          )}
-          {look.accessory === "glasses" && (
-            <g
-              stroke="#1f242c"
-              strokeWidth="1.2"
-              fill="rgba(255,255,255,0.6)"
-            >
-              <circle cx="27" cy="23" r="3" />
-              <circle cx="37" cy="23" r="3" />
-              <line x1="30" y1="23" x2="34" y2="23" />
-            </g>
-          )}
-          {look.accessory === "earring" && (
-            <circle cx="46" cy="25" r="1.2" fill="#F26522" />
+            <path
+              d="M14 21.5 L66 21.5 L64.8 25.65 L15.2 25.65 Z"
+              fill={BRAND_LOGO.fries}
+              stroke="#e07000"
+              strokeWidth="0.45"
+            />
+            <circle cx="40" cy="3.3" r="1.85" fill={BRAND_LOGO.fries} />
+          </g>
+          {highlighted && (
+            <circle
+              cx="40"
+              cy="36"
+              r="30"
+              fill="none"
+              stroke={BRAND_LOGO.fries}
+              strokeWidth="3"
+            />
           )}
         </svg>
         {showId && (
