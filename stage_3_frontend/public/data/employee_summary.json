@@ -1,0 +1,2696 @@
+{
+  "employees": [
+    {
+      "employee_id": 0,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-03",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 17,
+          "finishtime": 20,
+          "duration": 3,
+          "station_priority": 2,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 1,
+      "total_hours": 38,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 4,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 7,
+          "finishtime": 11,
+          "duration": 4,
+          "station_priority": 2,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 2,
+      "total_hours": 40,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 7,
+          "finishtime": 15,
+          "duration": 8,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 7,
+          "finishtime": 15,
+          "duration": 8,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 7,
+          "finishtime": 15,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 3,
+      "total_hours": 31,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 4,
+      "total_hours": 34,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 8,
+          "finishtime": 16,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 19,
+          "finishtime": 23,
+          "duration": 4,
+          "station_priority": 4,
+          "shift_priority": 3
+        }
+      ]
+    },
+    {
+      "employee_id": 5,
+      "total_hours": 31,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 9,
+          "finishtime": 16,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 9,
+          "finishtime": 16,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 9,
+          "finishtime": 16,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 12,
+          "finishtime": 15,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 9,
+          "finishtime": 16,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 6,
+      "total_hours": 32,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 10,
+          "finishtime": 18,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 19,
+          "finishtime": 23,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 19,
+          "finishtime": 23,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 7,
+      "total_hours": 40,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-29",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 11,
+          "finishtime": 18,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 8,
+      "total_hours": 40,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 8,
+          "finishtime": 16,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 15,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 8,
+          "finishtime": 15,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 15,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 9,
+      "total_hours": 4,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 13,
+          "finishtime": 17,
+          "duration": 4,
+          "station_priority": 4,
+          "shift_priority": 3
+        }
+      ]
+    },
+    {
+      "employee_id": 10,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-02",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 16,
+          "finishtime": 19,
+          "duration": 3,
+          "station_priority": 2,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 11,
+      "total_hours": 30,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 18,
+          "finishtime": 23,
+          "duration": 5,
+          "station_priority": 1,
+          "shift_priority": 4
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 12,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 17,
+          "finishtime": 20,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 13,
+      "total_hours": 7,
+      "working_days": 2,
+      "days_off": 5,
+      "shifts": [
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 7,
+          "finishtime": 10,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 7,
+          "finishtime": 11,
+          "duration": 4,
+          "station_priority": 4,
+          "shift_priority": 3
+        }
+      ]
+    },
+    {
+      "employee_id": 14,
+      "total_hours": 34,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 8,
+          "finishtime": 12,
+          "duration": 4,
+          "station_priority": 4,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 15,
+      "total_hours": 38,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 16,
+      "total_hours": 13,
+      "working_days": 4,
+      "days_off": 3,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 20,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 16,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 10,
+          "finishtime": 13,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 9,
+          "finishtime": 12,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 17,
+      "total_hours": 40,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 12,
+          "finishtime": 20,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 18,
+      "total_hours": 4,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 13,
+          "finishtime": 17,
+          "duration": 4,
+          "station_priority": 4,
+          "shift_priority": 3
+        }
+      ]
+    },
+    {
+      "employee_id": 19,
+      "total_hours": 35,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 11,
+          "finishtime": 14,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 4,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 2,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 20,
+      "total_hours": 28,
+      "working_days": 4,
+      "days_off": 3,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 2,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 21,
+      "total_hours": 9,
+      "working_days": 3,
+      "days_off": 4,
+      "shifts": [
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 12,
+          "finishtime": 15,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 12,
+          "finishtime": 15,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 13,
+          "finishtime": 16,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 22,
+      "total_hours": 8,
+      "working_days": 2,
+      "days_off": 5,
+      "shifts": [
+        {
+          "date": "2026-04-29",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 17,
+          "duration": 5,
+          "station_priority": 4,
+          "shift_priority": 4
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 14,
+          "finishtime": 17,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 23,
+      "total_hours": 16,
+      "working_days": 2,
+      "days_off": 5,
+      "shifts": [
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 9,
+          "finishtime": 16,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 10,
+          "finishtime": 19,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 24,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 18,
+          "finishtime": 21,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 25,
+      "total_hours": 13,
+      "working_days": 4,
+      "days_off": 3,
+      "shifts": [
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 18,
+          "finishtime": 21,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 16,
+          "finishtime": 19,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 15,
+          "finishtime": 18,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 15,
+          "finishtime": 19,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        }
+      ]
+    },
+    {
+      "employee_id": 26,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-01",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 16,
+          "finishtime": 19,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 27,
+      "total_hours": 17,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 16,
+          "finishtime": 19,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 16,
+          "finishtime": 20,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 16,
+          "finishtime": 20,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 16,
+          "finishtime": 19,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 16,
+          "finishtime": 19,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 28,
+      "total_hours": 31,
+      "working_days": 4,
+      "days_off": 3,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 7,
+          "finishtime": 15,
+          "duration": 8,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 10,
+          "finishtime": 19,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 29,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-03",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 15,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 30,
+      "total_hours": 22,
+      "working_days": 4,
+      "days_off": 3,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 23,
+          "duration": 6,
+          "station_priority": 1,
+          "shift_priority": 4
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 23,
+          "duration": 6,
+          "station_priority": 1,
+          "shift_priority": 4
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 19,
+          "finishtime": 23,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 23,
+          "duration": 6,
+          "station_priority": 1,
+          "shift_priority": 4
+        }
+      ]
+    },
+    {
+      "employee_id": 31,
+      "total_hours": 36,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 15,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 7,
+          "finishtime": 10,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 32,
+      "total_hours": 40,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 7,
+          "finishtime": 15,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 8,
+          "finishtime": 17,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 33,
+      "total_hours": 25,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 34,
+      "total_hours": 12,
+      "working_days": 3,
+      "days_off": 4,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 16,
+          "finishtime": 20,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 16,
+          "finishtime": 20,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 16,
+          "finishtime": 20,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        }
+      ]
+    },
+    {
+      "employee_id": 35,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 36,
+      "total_hours": 24,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 11,
+          "finishtime": 14,
+          "duration": 3,
+          "station_priority": 2,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 17,
+          "finishtime": 23,
+          "duration": 6,
+          "station_priority": 2,
+          "shift_priority": 4
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 2,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 37,
+      "total_hours": 12,
+      "working_days": 4,
+      "days_off": 3,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 14,
+          "finishtime": 17,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 14,
+          "finishtime": 17,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 14,
+          "finishtime": 17,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 15,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 38,
+      "total_hours": 19,
+      "working_days": 4,
+      "days_off": 3,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 13,
+          "finishtime": 16,
+          "duration": 3,
+          "station_priority": 2,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 16,
+          "duration": 4,
+          "station_priority": 4,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 17,
+          "duration": 5,
+          "station_priority": 4,
+          "shift_priority": 4
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 10,
+          "finishtime": 17,
+          "duration": 7,
+          "station_priority": 2,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 39,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 20,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 40,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-01",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 19,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 41,
+      "total_hours": 14,
+      "working_days": 4,
+      "days_off": 3,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 21,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 21,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 20,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 20,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 42,
+      "total_hours": 9,
+      "working_days": 3,
+      "days_off": 4,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 20,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 20,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 20,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 43,
+      "total_hours": 40,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 2,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 44,
+      "total_hours": 40,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 15,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 2,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 45,
+      "total_hours": 17,
+      "working_days": 4,
+      "days_off": 3,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 16,
+          "duration": 4,
+          "station_priority": 4,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 16,
+          "duration": 4,
+          "station_priority": 4,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 13,
+          "finishtime": 16,
+          "duration": 3,
+          "station_priority": 2,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 11,
+          "finishtime": 17,
+          "duration": 6,
+          "station_priority": 4,
+          "shift_priority": 4
+        }
+      ]
+    },
+    {
+      "employee_id": 46,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 47,
+      "total_hours": 39,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 7,
+          "finishtime": 10,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 48,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-02",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 10,
+          "finishtime": 13,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 49,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-01",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 19,
+          "finishtime": 22,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 50,
+      "total_hours": 22,
+      "working_days": 4,
+      "days_off": 3,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 20,
+          "finishtime": 23,
+          "duration": 3,
+          "station_priority": 4,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 51,
+      "total_hours": 15,
+      "working_days": 4,
+      "days_off": 3,
+      "shifts": [
+        {
+          "date": "2026-04-29",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 16,
+          "duration": 4,
+          "station_priority": 4,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 16,
+          "duration": 4,
+          "station_priority": 4,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 16,
+          "duration": 4,
+          "station_priority": 4,
+          "shift_priority": 3
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 13,
+          "finishtime": 16,
+          "duration": 3,
+          "station_priority": 2,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 52,
+      "total_hours": 40,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 12,
+          "finishtime": 19,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 17,
+          "finishtime": 23,
+          "duration": 6,
+          "station_priority": 1,
+          "shift_priority": 4
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 4,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 2,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 53,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-01",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 15,
+          "finishtime": 18,
+          "duration": 3,
+          "station_priority": 2,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 54,
+      "total_hours": 34,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 8,
+          "finishtime": 15,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 15,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 7,
+          "finishtime": 10,
+          "duration": 3,
+          "station_priority": 2,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 55,
+      "total_hours": 6,
+      "working_days": 2,
+      "days_off": 5,
+      "shifts": [
+        {
+          "date": "2026-05-01",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 17,
+          "finishtime": 20,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 18,
+          "finishtime": 21,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 56,
+      "total_hours": 11,
+      "working_days": 2,
+      "days_off": 5,
+      "shifts": [
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 11,
+          "finishtime": 14,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 12,
+          "finishtime": 20,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 57,
+      "total_hours": 4,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-03",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 16,
+          "finishtime": 20,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        }
+      ]
+    },
+    {
+      "employee_id": 58,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-01",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 19,
+          "finishtime": 22,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 59,
+      "total_hours": 38,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 14,
+          "finishtime": 23,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-29",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 12,
+          "finishtime": 20,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 2,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 14,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 60,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-02",
+          "station_key": "FF",
+          "station_name": "Картофель",
+          "starttime": 12,
+          "finishtime": 15,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 61,
+      "total_hours": 5,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-04-27",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 17,
+          "duration": 5,
+          "station_priority": 4,
+          "shift_priority": 4
+        }
+      ]
+    },
+    {
+      "employee_id": 62,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-03",
+          "station_key": "TS",
+          "station_name": "Зал",
+          "starttime": 16,
+          "finishtime": 19,
+          "duration": 3,
+          "station_priority": 2,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 63,
+      "total_hours": 4,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-03",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 12,
+          "finishtime": 16,
+          "duration": 4,
+          "station_priority": 1,
+          "shift_priority": 3
+        }
+      ]
+    },
+    {
+      "employee_id": 64,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-02",
+          "station_key": "BVR",
+          "station_name": "Напитки",
+          "starttime": 11,
+          "finishtime": 14,
+          "duration": 3,
+          "station_priority": 2,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 65,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-03",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 12,
+          "finishtime": 15,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 66,
+      "total_hours": 40,
+      "working_days": 5,
+      "days_off": 2,
+      "shifts": [
+        {
+          "date": "2026-04-28",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 16,
+          "finishtime": 23,
+          "duration": 7,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-04-30",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 7,
+          "finishtime": 16,
+          "duration": 9,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-01",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-02",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 15,
+          "finishtime": 23,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        }
+      ]
+    },
+    {
+      "employee_id": 67,
+      "total_hours": 3,
+      "working_days": 1,
+      "days_off": 6,
+      "shifts": [
+        {
+          "date": "2026-05-03",
+          "station_key": "K",
+          "station_name": "Кухня",
+          "starttime": 13,
+          "finishtime": 16,
+          "duration": 3,
+          "station_priority": 1,
+          "shift_priority": 2
+        }
+      ]
+    },
+    {
+      "employee_id": 68,
+      "total_hours": 14,
+      "working_days": 2,
+      "days_off": 5,
+      "shifts": [
+        {
+          "date": "2026-05-02",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 11,
+          "finishtime": 19,
+          "duration": 8,
+          "station_priority": 1,
+          "shift_priority": 1
+        },
+        {
+          "date": "2026-05-03",
+          "station_key": "C",
+          "station_name": "Прилавок",
+          "starttime": 11,
+          "finishtime": 17,
+          "duration": 6,
+          "station_priority": 1,
+          "shift_priority": 4
+        }
+      ]
+    }
+  ]
+}

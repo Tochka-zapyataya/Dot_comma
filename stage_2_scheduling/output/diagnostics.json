@@ -1,0 +1,42 @@
+{
+  "solver_mode": "cpsat_optimize",
+  "feasibility": {
+    "phase": "feasibility",
+    "status": "OPTIMAL",
+    "wall_time_seconds": 17.82,
+    "enforce_all_employees_used": true,
+    "num_candidates": 57410,
+    "num_slots": 560,
+    "num_employees": 69,
+    "objective_mode": "none",
+    "objective_value": null,
+    "total_overstaff": 143,
+    "total_understaff": 0,
+    "total_unused_employees": 0,
+    "unused_employees": [],
+    "final_num_shifts": 243,
+    "relaxed_employee_retry": false
+  },
+  "optimize": {
+    "phase": "optimize",
+    "status": "OPTIMAL",
+    "wall_time_seconds": 35.22,
+    "enforce_all_employees_used": true,
+    "num_candidates": 57410,
+    "num_slots": 560,
+    "num_employees": 69,
+    "objective_mode": "weighted",
+    "objective_value": 1575248.0,
+    "best_bound": 1575248.0,
+    "total_overstaff": 6,
+    "total_understaff": 0,
+    "total_unused_employees": 0,
+    "unused_employees": [],
+    "final_num_shifts": 214
+  },
+  "employees_without_candidates": [],
+  "forecast_metadata": {
+    "fallback_forecast_used": false,
+    "source": "data_tech_and_point/forecast.xlsx"
+  }
+}

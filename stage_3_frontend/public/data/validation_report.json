@@ -1,0 +1,34 @@
+{
+  "is_valid": true,
+  "solver_mode": "cpsat_optimize",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "total_shifts": 214,
+    "total_work_hours": 1252,
+    "total_hours": 1252,
+    "total_required_hours": 1246,
+    "total_errors": 0,
+    "total_warnings": 0,
+    "exact_coverage_slots": 554,
+    "overstaffed_ok_slots": 6,
+    "overstaffed_slots": 6,
+    "understaffed_slots": 0,
+    "too_much_overstaffed_slots": 0,
+    "used_employees": 69,
+    "average_station_priority": 1.6121,
+    "hours_priority_1": 880,
+    "hours_priority_2": 243,
+    "hours_priority_3": 0,
+    "hours_priority_4": 129,
+    "shift_duration_distribution": {
+      "3": 64,
+      "4": 26,
+      "5": 4,
+      "6": 7,
+      "7": 45,
+      "8": 33,
+      "9": 35
+    }
+  }
+}
