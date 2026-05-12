@@ -1,14 +1,3 @@
-# ============================================================
-# FORECAST MODEL v14
-# ETS(sp=112) + XGBoost(MAE) + LightGBM(MAE) + Analog Ensemble
-#
-# CHANGES vs v13:
-# [1] Morning downweight: часы 7-10 получают vol_w × 0.3 при обучении —
-#     модель фокусируется на пиковых часах с высоким вкладом в WAPE.
-#
-# MAIN METRIC: WAPE
-# ============================================================
-
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -28,10 +17,6 @@ from xgboost import XGBRegressor
 import lightgbm as lgb
 from statsmodels.tsa.holtwinters import ExponentialSmoothing
 
-# ============================================================
-# CONFIG
-# ============================================================
-
 WORKING_HOURS   = list(range(7, 23))
 HOURS_PER_DAY   = 16
 
@@ -46,20 +31,6 @@ FORECAST_END   = "2026-05-03"
 CUT_DATE = "2022-09-01"
 
 HIGH_ERROR_HOURS = {7, 8, 9, 10}
-
-# ============================================================
-# METRIC
-# ============================================================
-
-def wape(y_true, y_pred):
-    y_true = np.array(y_true, dtype=float)
-    y_pred = np.array(y_pred, dtype=float)
-    return np.sum(np.abs(y_true - y_pred)) / (np.sum(np.abs(y_true)) + 1e-9) * 100
-
-
-# ============================================================
-# HOLIDAYS
-# ============================================================
 
 _STATIC_HOLIDAYS_FIXED = {
     (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),(1,8),
@@ -77,10 +48,6 @@ _STATIC_EXTRA = {
     "2026-03-09","2026-05-04",
 }
 
-# ============================================================
-# WEATHER FALLBACK
-# ============================================================
-
 _CLIMATE_FALLBACK = {
     1: {"t": -7.0, "p": 40},
     2: {"t": -6.0, "p": 35},
@@ -96,9 +63,12 @@ _CLIMATE_FALLBACK = {
     12:{"t": -5.0, "p": 45},
 }
 
-# ============================================================
-# HTTP
-# ============================================================
+
+def wape(y_true, y_pred):
+    y_true = np.array(y_true, dtype=float)
+    y_pred = np.array(y_pred, dtype=float)
+    return np.sum(np.abs(y_true - y_pred)) / (np.sum(np.abs(y_true)) + 1e-9) * 100
+
 
 def _http_get(url, timeout=10):
     ctx = ssl.create_default_context()
@@ -111,10 +81,6 @@ def _http_get(url, timeout=10):
     except Exception:
         return None
 
-
-# ============================================================
-# HOLIDAYS API
-# ============================================================
 
 def fetch_holidays_api(years):
     holiday_dates = set()
@@ -130,10 +96,6 @@ def fetch_holidays_api(years):
     holiday_dates |= _STATIC_EXTRA
     return holiday_dates
 
-
-# ============================================================
-# WEATHER API
-# ============================================================
 
 def fetch_weather_api(start_date, end_date, known_cutoff=None):
     arch_end = str(end_date)
@@ -174,10 +136,6 @@ def fetch_weather_api(start_date, end_date, known_cutoff=None):
     return arch_df
 
 
-# ============================================================
-# INDEX
-# ============================================================
-
 def make_working_index(start_date, end_date):
     days = pd.date_range(start_date, end_date, freq="D")
     idx  = []
@@ -186,10 +144,6 @@ def make_working_index(start_date, end_date):
             idx.append(pd.Timestamp(d) + pd.Timedelta(hours=h))
     return pd.DatetimeIndex(idx)
 
-
-# ============================================================
-# YoY TREND — monthly median (same as v12, more robust)
-# ============================================================
 
 def estimate_yoy_trend(train_raw):
     df = train_raw.copy()
@@ -212,10 +166,6 @@ def estimate_yoy_trend(train_raw):
     return float(trend)
 
 
-# ============================================================
-# HOLIDAY RATIO BY HOUR (data-driven, from v12)
-# ============================================================
-
 def compute_holiday_ratio_by_hour(train_raw, holiday_set):
     df = train_raw.copy()
     df["is_hol"] = df["sale_date"].map(
@@ -227,32 +177,24 @@ def compute_holiday_ratio_by_hour(train_raw, holiday_set):
     return ratio
 
 
-# ============================================================
-# FEATURES (+slot_ewm12 vs v12)
-# ============================================================
-
 def compute_features(df, holiday_set, weather_df, train_index=None):
     df = df.copy()
 
-    # — time —
     df["hour"]       = df.index.hour
     df["dayofweek"]  = df.index.dayofweek
     df["month"]      = df.index.month
     df["quarter"]    = df.index.quarter
     df["is_weekend"] = (df["dayofweek"] >= 5).astype(int)
 
-    # — cyclical —
     df["hour_sin"] = np.sin(2 * np.pi * df["hour"] / 24)
     df["hour_cos"] = np.cos(2 * np.pi * df["hour"] / 24)
     df["dow_sin"]  = np.sin(2 * np.pi * df["dayofweek"] / 7)
     df["dow_cos"]  = np.cos(2 * np.pi * df["dayofweek"] / 7)
 
-    # — business slots —
     df["is_morning"] = (df["hour"] <= 10).astype(int)
     df["is_lunch"]   = df["hour"].isin([11, 12, 13, 14]).astype(int)
     df["is_dinner"]  = df["hour"].isin([17, 18, 19, 20]).astype(int)
 
-    # — holiday flags —
     df["is_holiday"] = df.index.normalize().map(
         lambda x: int(x.strftime("%Y-%m-%d") in holiday_set)
     )
@@ -278,7 +220,6 @@ def compute_features(df, holiday_set, weather_df, train_index=None):
     df["days_to_holiday"] = [_days_to_nearest(d) for d in normalized_dates]
     df["is_holiday_week"]  = (df["days_to_holiday"] <= 3).astype(int)
 
-    # — weather —
     if weather_df is not None:
         df = df.join(weather_df, how="left")
     temp_fallback = pd.Series(
@@ -288,38 +229,34 @@ def compute_features(df, holiday_set, weather_df, train_index=None):
     df["precip_mm"] = df["precip_mm"].fillna(0)
     df["is_rainy"]  = (df["precip_mm"] > 0.5).astype(int)
 
-    # — lags —
     for lag in [1, 2, 16, 32, 48, 80, 112, 224, 336, 448]:
         df[f"lag_{lag}"] = df["guests_count"].shift(lag)
 
-    # — rolling —
     base = df["guests_count"].shift(1)
     for w in [16, 32, 80, 112]:
         df[f"rolling_mean_{w}"] = base.rolling(w).mean()
         df[f"rolling_std_{w}"]  = base.rolling(w).std()
 
-    # — slot features (+ ewm12 vs v12) —
     slot_ewm4, slot_ewm8, slot_ewm12, slot_roll2, slot_roll4 = [], [], [], [], []
     for (h, d), grp in df.groupby(["hour", "dayofweek"]):
         g = grp.sort_index()["guests_count"].shift(1)
         slot_ewm4.append(g.ewm(span=4).mean())
         slot_ewm8.append(g.ewm(span=8).mean())
-        slot_ewm12.append(g.ewm(span=12).mean())   # [NEW v13]
+        slot_ewm12.append(g.ewm(span=12).mean())
         slot_roll2.append(g.rolling(2).mean())
         slot_roll4.append(g.rolling(4).mean())
 
     df["slot_ewm4"]  = pd.concat(slot_ewm4).sort_index()
     df["slot_ewm8"]  = pd.concat(slot_ewm8).sort_index()
-    df["slot_ewm12"] = pd.concat(slot_ewm12).sort_index()  # [NEW v13]
+    df["slot_ewm12"] = pd.concat(slot_ewm12).sort_index()
     df["slot_roll2"] = pd.concat(slot_roll2).sort_index()
     df["slot_roll4"] = pd.concat(slot_roll4).sort_index()
 
     df["slot_momentum"]     = df["slot_ewm4"] - df["slot_ewm8"]
     df["slot_acceleration"] = df["slot_roll2"] - df["slot_roll4"]
     df["lag1_vs_slot"]      = df["lag_1"] / (df["slot_ewm4"] + 1e-9)
-    df["ewm4_vs_ewm12"]     = df["slot_ewm4"] - df["slot_ewm12"]  # [NEW v13]
+    df["ewm4_vs_ewm12"]     = df["slot_ewm4"] - df["slot_ewm12"]
 
-    # — mean encoding —
     if train_index is not None:
         tr    = df.loc[df.index.isin(train_index) & df["guests_count"].notna()]
         me_hd = tr.groupby(["hour", "dayofweek"])["guests_count"].mean()
@@ -332,10 +269,6 @@ def compute_features(df, holiday_set, weather_df, train_index=None):
 
     return df
 
-
-# ============================================================
-# ETS
-# ============================================================
 
 def prepare_ets(train_raw):
     df = train_raw.copy()
@@ -366,10 +299,6 @@ def prepare_ets(train_raw):
 
     raise RuntimeError("ETS fitting failed")
 
-
-# ============================================================
-# MODEL
-# ============================================================
 
 def build_model(train_raw, holiday_set, weather_df):
 
@@ -422,7 +351,6 @@ def build_model(train_raw, holiday_set, weather_df):
     X = boost_df[xgb_features]
     y = boost_df["ets_residual"]
 
-    # [v13] Recency weights + volume weights
     most_recent_ts = boost_df.index.max()
     elapsed_days   = np.array(
         (most_recent_ts - boost_df.index).total_seconds(), dtype=float
@@ -430,7 +358,6 @@ def build_model(train_raw, holiday_set, weather_df):
     sw_recency = np.exp(-elapsed_days / 548.0)
     sw_recency = sw_recency / sw_recency.mean()
 
-    # volume weight: пиковые часы (12-19) вносят больше в WAPE
     hour_mean_volume = (
         train_raw.groupby("sale_hour")["guests_count"].mean()
     )
@@ -441,8 +368,6 @@ def build_model(train_raw, holiday_set, weather_df):
         )
     ).values
 
-    # [v14] Morning downweight: часы 7-10 уже плохо предсказываются,
-    # снижаем их вес чтобы модель концентрировалась на пиковых часах
     morning_mask = np.isin(boost_df.index.hour, list(HIGH_ERROR_HOURS))
     vol_w = np.where(morning_mask, vol_w * 0.3, vol_w)
 
@@ -450,7 +375,6 @@ def build_model(train_raw, holiday_set, weather_df):
     sw_all = sw_all / sw_all.mean()
     sample_weights = pd.Series(sw_all, index=boost_df.index)
 
-    # CV by (hour, dow)
     recent_for_cv = train_raw[train_raw["sale_date"] >= pd.Timestamp("2023-01-01")].copy()
     recent_for_cv["dow"] = recent_for_cv["sale_date"].dt.dayofweek
     cv_by_slot = (
@@ -588,10 +512,6 @@ def build_model(train_raw, holiday_set, weather_df):
     }
 
 
-# ============================================================
-# FILL RESIDUAL LAGS
-# ============================================================
-
 def fill_residual_lags_for_forecast(
     forecast_index,
     residual_series,
@@ -635,10 +555,6 @@ def fill_residual_lags_for_forecast(
     return pd.DataFrame(scaled, columns=res_lag_cols)
 
 
-# ============================================================
-# FORECAST
-# ============================================================
-
 def make_forecast(artifacts, holiday_set):
 
     xgb              = artifacts["xgb"]
@@ -674,7 +590,6 @@ def make_forecast(artifacts, holiday_set):
 
     ml_forecast = np.maximum(ets_forecast.values + res_pred, 0)
 
-    # Adaptive blend weights by (hour, dow) CV
     cv_min = cv_by_slot.min()
     cv_max = cv_by_slot.max()
     alpha_ml = np.array([
@@ -686,11 +601,6 @@ def make_forecast(artifacts, holiday_set):
         for ts in forecast_index
     ])
     alpha_analog = 1.0 - alpha_ml
-
-    # ========================================================
-    # ANALOG ENSEMBLE
-    # [v13] holiday YoY cap: hol_yoy = min(YOY_TREND, 1.0)
-    # ========================================================
 
     YOY_TREND = estimate_yoy_trend(train_raw)
 
@@ -715,7 +625,6 @@ def make_forecast(artifacts, holiday_set):
                 n = len(same_day)
                 w = 0.90 ** np.arange(n - 1, -1, -1)
                 hol_val = np.average(same_day["guests_count"].values, weights=w)
-                # [v13] Holiday YoY cap: не применяем положительный тренд к праздникам
                 hol_yoy = min(YOY_TREND, 1.0)
                 hol_val *= (1.0 + 0.5 * (hol_yoy - 1.0))
                 values.append(hol_val)
@@ -753,9 +662,6 @@ def make_forecast(artifacts, holiday_set):
     analog_values         = np.array(analog_values)
     used_holiday_pool_arr = np.array(used_holiday_pool_arr)
 
-    # Blend ML + analog
-    # [v13] Holiday alpha boost: для праздников с historical pool
-    # используем alpha_analog=0.85 — ML слабо знает праздничный паттерн
     final = ml_forecast.copy()
     mask  = ~np.isnan(analog_values)
     for i in np.where(mask)[0]:
@@ -765,7 +671,6 @@ def make_forecast(artifacts, holiday_set):
             a_ml = alpha_ml[i]
         final[i] = a_ml * ml_forecast[i] + (1.0 - a_ml) * analog_values[i]
 
-    # Holiday correction + floor clipping
     holiday_hours = train_raw.groupby("sale_hour")["guests_count"].median()
 
     for i, ts in enumerate(forecast_index):
@@ -792,10 +697,6 @@ def make_forecast(artifacts, holiday_set):
     })
     return result_std, result_kaggle
 
-
-# ============================================================
-# HOLD-OUT EVALUATION
-# ============================================================
 
 def evaluate_on_holdout(
     train_raw_full,
@@ -835,10 +736,6 @@ def evaluate_on_holdout(
     print(f"[eval] Hold-out WAPE (v13): {hw:.3f}%")
     return hw, result_std
 
-
-# ============================================================
-# MAIN
-# ============================================================
 
 if __name__ == "__main__":
 
